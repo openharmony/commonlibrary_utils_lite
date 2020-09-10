@@ -35,9 +35,15 @@ boolean IsValidChar(const char ch)
 
 boolean IsValidValue(const char* value, unsigned int len)
 {
-    if ((value == NULL) || !strlen(value) || (strlen(value) >= len)) {
+    if (value == NULL) {
         return FALSE;
     }
+
+    int valueLen = strnlen(value, MAX_VALUE_LEN);
+    if (valueLen <= 0 || valueLen >= MAX_VALUE_LEN || valueLen >= len) {
+        return FALSE;
+    }
+    
     return TRUE;
 }
 
@@ -46,7 +52,8 @@ boolean IsValidKey(const char* key)
     if (!IsValidValue(key, MAX_KEY_LEN)) {
         return FALSE;
     }
-    int keyLen = strlen(key);
+
+    int keyLen = strnlen(key, MAX_KEY_LEN);
     for (int i = 0; i < keyLen; i++) {
         if (!IsValidChar(key[i])) {
             return FALSE;
