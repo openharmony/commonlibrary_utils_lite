@@ -39,7 +39,7 @@ boolean IsValidValue(const char* value, unsigned int len)
         return FALSE;
     }
 
-    int valueLen = strnlen(value, MAX_VALUE_LEN);
+    size_t valueLen = strnlen(value, MAX_VALUE_LEN);
     if (valueLen <= 0 || valueLen >= MAX_VALUE_LEN || valueLen >= len) {
         return FALSE;
     }
