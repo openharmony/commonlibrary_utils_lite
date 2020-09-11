@@ -29,7 +29,7 @@ typedef struct {
     KalTimerProc func;
     union sigval arg;
     int isRunning;
-}KalTimer;
+} KalTimer;
 
 static void KalFunction(union sigval kalTimer)
 {
