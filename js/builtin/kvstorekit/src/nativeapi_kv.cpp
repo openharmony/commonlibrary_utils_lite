@@ -26,9 +26,13 @@ namespace ACELite {
 namespace {
 char g_kvFullPath[FILE_NAME_MAX_LEN + 1] = {0};
 
-bool IsValidKey(const char *key)
+bool IsValidKey(const char* key)
 {
-    if ((key == nullptr) || !strlen(key) || (strlen(key) > KEY_MAX_LEN)) {
+    if (key == nullptr) {
+        return false;
+    }
+    size_t keyLen = strnlen(key, KEY_MAX_LEN + 1);
+    if ((keyLen == 0) || (keyLen > KEY_MAX_LEN)) {
         return false;
     }
     if (strpbrk(key, "/\\\"*+,:;<=>\?[]|\x7F")) {
@@ -53,7 +57,7 @@ int GetFullPath(const char* dataPath, const char* key)
 
 void GetDefault(const JSIValue thisVal, const JSIValue args)
 {
-    char *defaultValue = JSI::GetStringProperty(args, DEFAULT);
+    char* defaultValue = JSI::GetStringProperty(args, DEFAULT);
     JSIValue result;
     if (defaultValue == nullptr) {
         result = JSI::CreateString("");
@@ -125,7 +129,7 @@ void ExecuteGet(void* data)
     const char* dataPath = GetDataPath();
     JSIValue result = JSI::CreateUndefined();
     int ret = ERROR_CODE_GENERAL;
-    char *value = reinterpret_cast<char *>(malloc(VALUE_MAX_LEN + 1));
+    char* value = reinterpret_cast<char *>(malloc(VALUE_MAX_LEN + 1));
     if (value == nullptr) {
         NativeapiCommon::FailCallBack(thisVal, args, ret);
         goto EXIT;

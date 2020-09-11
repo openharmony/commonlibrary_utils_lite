@@ -27,9 +27,13 @@
 
 static char g_kvFolder[FILE_NAME_MAX_LEN + 1] = {0};
 
-static bool IsValidValue(const char *value)
+static bool IsValidValue(const char* value)
 {
-    if ((value == NULL) || !strlen(value) || (strlen(value) > VALUE_MAX_LEN)) {
+    if (value == NULL) {
+        return false;
+    }
+    size_t valueLen = strnlen(value, VALUE_MAX_LEN + 1);
+    if ((valueLen == 0) || (valueLen > VALUE_MAX_LEN)) {
         return false;
     }
     return true;
@@ -152,11 +156,11 @@ int ClearKVStore(const char* dataPath)
         return ret;
     }
     ret = ERROR_CODE_GENERAL;
-    DIR *fileDir = opendir(g_kvFolder);
+    DIR* fileDir = opendir(g_kvFolder);
     if (fileDir == NULL) {
         return ret;
     }
-    struct dirent *dir = readdir(fileDir);
+    struct dirent* dir = readdir(fileDir);
     char* fullPath = (char *)malloc(FILE_NAME_MAX_LEN + 1);
     if (fullPath == NULL) {
         goto EXIT;
