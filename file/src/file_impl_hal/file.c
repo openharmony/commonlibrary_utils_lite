@@ -31,22 +31,22 @@ int UtilsFileClose(int fd)
     return HalFileClose(fd);
 }
 
-int UtilsFileRead(int fd, char *buf, unsigned int len)
+int UtilsFileRead(int fd, char* buf, unsigned int len)
 {
     return HalFileRead(fd, buf, len);
 }
 
-int UtilsFileWrite(int fd, const char *buf, unsigned int len)
+int UtilsFileWrite(int fd, const char* buf, unsigned int len)
 {
     return HalFileWrite(fd, buf, len);
 }
 
-int UtilsFileDelete(const char *path)
+int UtilsFileDelete(const char* path)
 {
     return HalFileDelete(path);
 }
 
-int UtilsFileStat(const char *path, unsigned int *fileSize)
+int UtilsFileStat(const char* path, unsigned int* fileSize)
 {
     return HalFileStat(path, fileSize);
 }
@@ -70,7 +70,7 @@ int UtilsFileCopy(const char* src, const char* dest)
         UtilsFileClose(fpSrc);
         return fpDest;
     }
-    char *dataBuf = (char *)malloc(BUFFER_SIZE);
+    char* dataBuf = (char *)malloc(BUFFER_SIZE);
     if (dataBuf == NULL) {
         UtilsFileClose(fpSrc);
         UtilsFileClose(fpDest);

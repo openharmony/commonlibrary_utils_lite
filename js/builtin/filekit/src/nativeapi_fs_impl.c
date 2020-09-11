@@ -27,9 +27,13 @@
 
 #define BUFFER_SIZE 512
 
-static bool IsValidPath(const char *path)
+static bool IsValidPath(const char* path)
 {
-    if ((path == NULL) || !strlen(path) || (strlen(path) > FILE_NAME_MAX_LEN)) {
+    if (path == NULL) {
+        return false;
+    }
+    size_t pathLen = strnlen(path, FILE_NAME_MAX_LEN + 1);
+    if ((pathLen == 0) || (pathLen > FILE_NAME_MAX_LEN)) {
         return false;
     }
     if (strpbrk(path, "\"*+,:;<=>\?[]|\x7F")) {
@@ -57,11 +61,11 @@ static int RmdirRecursive(const char* fileName)
         return ERROR_CODE_PARAM;
     }
     int ret = ERROR_CODE_GENERAL;
-    DIR *fileDir = opendir(fileName);
+    DIR* fileDir = opendir(fileName);
     if (fileDir == NULL) {
         return ret;
     }
-    struct dirent *dir = readdir(fileDir);
+    struct dirent* dir = readdir(fileDir);
     struct stat info = { 0 };
     char* fullPath = (char *)malloc(FILE_NAME_MAX_LEN + 1);
     if (fullPath == NULL) {
@@ -103,17 +107,18 @@ static int RmdirRecursive(const char* fileName)
 
 static int MakeParent(const char* path, char* firstPath, size_t fPathLen, int* dirNum)
 {
-    char* fullPath = (char *)malloc(strlen(path) + 1);
+    size_t pathLen = strlen(path) + 1;
+    char* fullPath = (char *)malloc(pathLen);
     if (fullPath == NULL) {
         return ERROR_CODE_GENERAL;
     }
-    if (strcpy_s(fullPath, strlen(path) + 1, path) != EOK) {
+    if (strcpy_s(fullPath, pathLen, path) != EOK) {
         free(fullPath);
         return ERROR_CODE_GENERAL;
     }
     int ret = NATIVE_SUCCESS;
     if (AccessImpl(fullPath) != NATIVE_SUCCESS) {
-        char *sep = strrchr(fullPath, '/');
+        char* sep = strrchr(fullPath, '/');
         if (sep != NULL) {
             *sep = 0;
             MakeParent(fullPath, firstPath, fPathLen, dirNum);
@@ -157,7 +162,7 @@ static int MkdirRecursive(const char* path)
 
 static int DoCopyFile(int fdSrc, int fdDest)
 {
-    char *dataBuf = (char *)malloc(BUFFER_SIZE);
+    char* dataBuf = (char *)malloc(BUFFER_SIZE);
     if (dataBuf == NULL) {
         return ERROR_CODE_GENERAL;
     }
@@ -176,7 +181,7 @@ static int DoCopyFile(int fdSrc, int fdDest)
     return NATIVE_SUCCESS;
 }
 
-int StatImpl(const char *path, struct stat *buf)
+int StatImpl(const char* path, struct stat* buf)
 {
     if (!IsValidPath(path) || (buf == NULL)) {
         return ERROR_CODE_PARAM;
@@ -200,7 +205,7 @@ int DeleteFileImpl(const char* src)
     return NATIVE_SUCCESS;
 }
 
-int CopyFileImpl(const char *src, const char *dest)
+int CopyFileImpl(const char* src, const char* dest)
 {
     if (!IsValidPath(src) || !IsValidPath(dest)) {
         return ERROR_CODE_PARAM;
@@ -245,7 +250,7 @@ int CopyFileImpl(const char *src, const char *dest)
     return ret;
 }
 
-int WriteTextFile(const char *fileName, const void *buf, size_t len, bool append)
+int WriteTextFile(const char* fileName, const void* buf, size_t len, bool append)
 {
     if (!IsValidPath(fileName) || (buf == NULL)) {
         return ERROR_CODE_PARAM;
@@ -276,7 +281,7 @@ int WriteTextFile(const char *fileName, const void *buf, size_t len, bool append
     return NATIVE_SUCCESS;
 }
 
-int WriteArrayFile(const char *fileName, const void *buf, size_t len, unsigned int position, bool append)
+int WriteArrayFile(const char* fileName, const void* buf, size_t len, unsigned int position, bool append)
 {
     if (!IsValidPath(fileName) || (buf == NULL)) {
         return ERROR_CODE_PARAM;
@@ -317,7 +322,7 @@ int WriteArrayFile(const char *fileName, const void *buf, size_t len, unsigned i
     return NATIVE_SUCCESS;
 }
 
-int ReadFileImpl(const char *fileName, void* text, size_t len, unsigned int position, size_t* actualLen)
+int ReadFileImpl(const char* fileName, void* text, size_t len, unsigned int position, size_t* actualLen)
 {
     if (!IsValidPath(fileName) || (text == NULL)) {
         return ERROR_CODE_PARAM;
@@ -368,14 +373,14 @@ int GetFileListImpl(const char* dirName, FileMetaInfo* fileList, unsigned int li
         return ERROR_CODE_PARAM;
     }
     int ret = ERROR_CODE_GENERAL;
-    DIR *fileDir = opendir(dirName);
+    DIR* fileDir = opendir(dirName);
     if (fileDir == NULL) {
         return ret;
     }
     int fileIndex = 0;
-    struct dirent *dir = readdir(fileDir);
+    struct dirent* dir = readdir(fileDir);
     struct stat fileStat = { 0 };
-    char *fullFileName = (char *)malloc(FILE_NAME_MAX_LEN + 1);
+    char* fullFileName = (char *)malloc(FILE_NAME_MAX_LEN + 1);
     if (fullFileName == NULL) {
         goto EXIT;
     }
@@ -411,11 +416,11 @@ int GetFileNum(const char* dirName)
     if (ret != NATIVE_SUCCESS) {
         return ret;
     }
-    DIR *fileDir = opendir(dirName);
+    DIR* fileDir = opendir(dirName);
     if (fileDir == NULL) {
         return ERROR_CODE_PARAM;
     }
-    struct dirent *dir = readdir(fileDir);
+    struct dirent* dir = readdir(fileDir);
     int sum = 0;
     while (dir != NULL) {
         sum++;

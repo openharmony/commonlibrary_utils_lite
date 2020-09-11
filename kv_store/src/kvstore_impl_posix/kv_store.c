@@ -166,11 +166,11 @@ static int GetCurrentItem(const char* dataPath)
     if (sprintf_s(kvPath, MAX_KEY_PATH + 1, "%s/%s", dataPath, KVSTORE_PATH) < 0) {
         return EC_FAILURE;
     }
-    DIR *fileDir = opendir(kvPath);
+    DIR* fileDir = opendir(kvPath);
     if (fileDir == NULL) {
         return EC_FAILURE;
     }
-    struct dirent *dir = readdir(fileDir);
+    struct dirent* dir = readdir(fileDir);
     int sum = 0;
     while (dir != NULL) {
         char fullPath[MAX_KEY_PATH + 1] = {0};
