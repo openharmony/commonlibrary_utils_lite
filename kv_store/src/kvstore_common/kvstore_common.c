@@ -80,7 +80,7 @@ void DeleteKVCache(const char* key)
         return;
     }
     KvItem* item = g_itemHeader;
-    while (strncmp(key, item->key, strlen(key)) != 0) {
+    while (strcmp(key, item->key) != 0) {
         item = item->next;
         if (item == NULL) {
             return;
@@ -156,7 +156,7 @@ int GetValueByCache(const char* key, char* value, unsigned int maxLen)
         return EC_FAILURE;
     }
     KvItem* item = g_itemHeader;
-    while (strncmp(key, item->key, strlen(key)) != 0) {
+    while (strcmp(key, item->key) != 0) {
         item = item->next;
         if (item == NULL) {
             return EC_FAILURE;
