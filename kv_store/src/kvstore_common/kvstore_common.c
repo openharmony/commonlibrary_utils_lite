@@ -112,6 +112,7 @@ void AddKVCache(const char* key, const char* value, boolean isNew)
     if (item == NULL) {
         return;
     }
+    (void)memset_s(item, sizeof(KvItem), 0, sizeof(KvItem));
     size_t keyLen = strnlen(key, MAX_KEY_LEN);
     size_t valueLen = strnlen(value, MAX_VALUE_LEN);
     if ((keyLen >= MAX_KEY_LEN) || (valueLen >= MAX_VALUE_LEN)) {
