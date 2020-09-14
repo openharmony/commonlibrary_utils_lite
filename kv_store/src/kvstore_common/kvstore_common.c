@@ -105,6 +105,11 @@ void DeleteKVCache(const char* key)
 
 void AddKVCache(const char* key, const char* value, boolean isNew)
 {
+    size_t keyLen = strnlen(key, MAX_KEY_LEN);
+    size_t valueLen = strnlen(value, MAX_VALUE_LEN);
+    if ((keyLen >= MAX_KEY_LEN) || (valueLen >= MAX_VALUE_LEN)) {
+        return;
+    }
     if (isNew) {
         DeleteKVCache(key);
     }
@@ -113,12 +118,6 @@ void AddKVCache(const char* key, const char* value, boolean isNew)
         return;
     }
     (void)memset_s(item, sizeof(KvItem), 0, sizeof(KvItem));
-    size_t keyLen = strnlen(key, MAX_KEY_LEN);
-    size_t valueLen = strnlen(value, MAX_VALUE_LEN);
-    if ((keyLen >= MAX_KEY_LEN) || (valueLen >= MAX_VALUE_LEN)) {
-        FreeItem(item);
-        return;
-    }
     item->key = (char *)malloc(keyLen + 1);
     item->value = (char *)malloc(valueLen + 1);
     if ((item->key == NULL) || (item->value == NULL)) {
