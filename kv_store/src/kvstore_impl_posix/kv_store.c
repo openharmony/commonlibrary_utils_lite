@@ -86,12 +86,12 @@ static int GetValueByFile(const char* dataPath, const char* key, char* value, un
     if (fd < 0) {
         return EC_FAILURE;
     }
-    if (read(fd, value, info.st_size) < 0) {
-        close(fd);
-        return EC_FAILURE;
-    }
+    int ret = read(fd, value, info.st_size);
     close(fd);
     fd = -1;
+    if (ret < 0) {
+        return EC_FAILURE;
+    }
     value[info.st_size] = '\0';
     return info.st_size;
 }
@@ -112,12 +112,10 @@ static int SetValueToFile(const char* dataPath, const char* key, const char* val
     if (fd < 0) {
         return EC_FAILURE;
     }
-    if (write(fd, value, strlen(value)) < 0) {
-        close(fd);
-        return EC_FAILURE;
-    }
+    int ret = write(fd, value, strlen(value));
     close(fd);
-    return EC_SUCCESS;
+    fd = -1;
+    return (ret < 0) ? EC_FAILURE : EC_SUCCESS;
 }
 
 static int DeleteValueFromFile(const char* dataPath, const char* key)
@@ -317,10 +315,7 @@ int UtilsSetEnv(const char* path)
         return EC_FAILURE;
     }
     pthread_mutex_lock(&g_kvGlobalMutex);
-    if (strcpy_s(g_dataPath, MAX_KEY_PATH + 1, path) != EOK) {
-        pthread_mutex_unlock(&g_kvGlobalMutex);
-        return EC_FAILURE;
-    }
+    int ret = strcpy_s(g_dataPath, MAX_KEY_PATH + 1, path);
     pthread_mutex_unlock(&g_kvGlobalMutex);
-    return EC_SUCCESS;
+    return (ret != EOK) ? EC_FAILURE : EC_SUCCESS;
 }

@@ -143,12 +143,9 @@ KalErrCode KalTimerDelete(KalTimerId timerId)
     }
     KalTimer* tmpPtr = (KalTimer *)timerId;
     int ret = timer_delete(tmpPtr->timerPtr);
-    if (ret != 0) {
-        free(timerId);
-        return KAL_ERR_INNER;
-    }
     free(timerId);
-    return KAL_OK;
+    timerId = NULL;
+    return (ret != 0) ? KAL_ERR_INNER : KAL_OK;
 }
 
 unsigned int KalTimerIsRunning(KalTimerId timerId)
