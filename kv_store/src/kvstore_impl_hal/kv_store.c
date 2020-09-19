@@ -140,8 +140,8 @@ int UtilsSetValue(const char* key, const char* value)
             currentNum++;
         }
     }
-    ret = SetCurrentItem(currentNum);
-    return ret;
+
+    return SetCurrentItem(currentNum);
 }
 
 int UtilsDeleteValue(const char* key)

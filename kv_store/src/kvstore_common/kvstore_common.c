@@ -186,9 +186,7 @@ int ClearKVCacheInner(void)
     }
     g_itemHeader = NULL;
     g_itemTail = NULL;
-    if (g_sum != 0) {
-        return EC_FAILURE;
-    }
-    return EC_SUCCESS;
+
+    return (g_sum != 0) ? EC_FAILURE : EC_SUCCESS;
 }
 #endif

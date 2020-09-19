@@ -301,9 +301,8 @@ int UtilsDeleteValue(const char* key)
 #ifdef FEATURE_KV_CACHE
 int ClearKVCache(void)
 {
-    int ret;
     pthread_mutex_lock(&g_kvGlobalMutex);
-    ret = ClearKVCacheInner();
+    int ret = ClearKVCacheInner();
     pthread_mutex_unlock(&g_kvGlobalMutex);
     return ret;
 }
