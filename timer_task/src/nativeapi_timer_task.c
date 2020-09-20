@@ -26,7 +26,7 @@ int InitTimerTask()
 int StartTimerTask(bool isPeriodic, const unsigned int delay, void* userCallback,
     void* userContext, timerHandle_t* timerHandle)
 {
-    if (userCallback == NULL) {
+    if (userCallback == NULL || timerHandle == NULL) {
         return EC_FAILURE;
     }
 
