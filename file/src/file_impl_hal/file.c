@@ -19,6 +19,8 @@
 #include "ohos_errno.h"
 #include "ohos_types.h"
 
+#include <stdbool.h>
+
 #define BUFFER_SIZE 128
 
 int UtilsFileOpen(const char* path, int oflag, int mode)
@@ -70,28 +72,26 @@ int UtilsFileCopy(const char* src, const char* dest)
         UtilsFileClose(fpSrc);
         return fpDest;
     }
+    bool copyFailed = true;
     char* dataBuf = (char *)malloc(BUFFER_SIZE);
     if (dataBuf == NULL) {
-        UtilsFileClose(fpSrc);
-        UtilsFileClose(fpDest);
-        UtilsFileDelete(dest);
-        return EC_FAILURE;
+        goto MALLOC_ERROR;
     }
     int nLen = UtilsFileRead(fpSrc, dataBuf, BUFFER_SIZE);
     while (nLen > 0) {
         if (UtilsFileWrite(fpDest, dataBuf, nLen) != nLen) {
-            free(dataBuf);
-            UtilsFileClose(fpSrc);
-            UtilsFileClose(fpDest);
-            UtilsFileDelete(dest);
-            return EC_FAILURE;
+            goto EXIT;
         }
         nLen = UtilsFileRead(fpSrc, dataBuf, BUFFER_SIZE);
     }
+    copyFailed = (nLen < 0);
+
+EXIT:
     free(dataBuf);
+MALLOC_ERROR:
     UtilsFileClose(fpSrc);
     UtilsFileClose(fpDest);
-    if (nLen < 0) {
+    if (copyFailed) {
         UtilsFileDelete(dest);
         return EC_FAILURE;
     }

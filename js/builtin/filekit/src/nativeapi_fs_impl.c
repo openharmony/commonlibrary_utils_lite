@@ -69,24 +69,17 @@ static int RmdirRecursive(const char* fileName)
     struct stat info = { 0 };
     char* fullPath = (char *)malloc(FILE_NAME_MAX_LEN + 1);
     if (fullPath == NULL) {
-        closedir(fileDir);
-        return ret;
+        goto MALLOC_ERROR;
     }
     while (dir != NULL) {
         if (memset_s(fullPath, FILE_NAME_MAX_LEN + 1, 0x0, FILE_NAME_MAX_LEN + 1) != EOK) {
-            free(fullPath);
-            closedir(fileDir);
-            return ret;
+            goto EXIT;
         }
         if (sprintf_s(fullPath, FILE_NAME_MAX_LEN + 1, "%s/%s", fileName, dir->d_name) < 0) {
-            free(fullPath);
-            closedir(fileDir);
-            return ret;
+            goto EXIT;
         }
         if (stat(fullPath, &info) != 0) {
-            free(fullPath);
-            closedir(fileDir);
-            return ret;
+            goto EXIT;
         }
         if (S_ISDIR(info.st_mode)) {
             ret = RmdirRecursive(fullPath);
@@ -94,15 +87,17 @@ static int RmdirRecursive(const char* fileName)
             ret = unlink(fullPath);
         }
         if (ret != NATIVE_SUCCESS) {
-            free(fullPath);
-            closedir(fileDir);
-            return ret;
+            goto EXIT;
         }
         dir = readdir(fileDir);
     }
+    ret = rmdir(fileName);
+
+EXIT:
     free(fullPath);
+MALLOC_ERROR:
     closedir(fileDir);
-    return rmdir(fileName);
+    return ret;
 }
 
 static int MakeParent(const char* path, char* firstPath, size_t fPathLen, int* dirNum)
@@ -175,10 +170,7 @@ static int DoCopyFile(int fdSrc, int fdDest)
         nLen = read(fdSrc, dataBuf, BUFFER_SIZE);
     }
     free(dataBuf);
-    if (nLen < 0) {
-        return ERROR_CODE_IO;
-    }
-    return NATIVE_SUCCESS;
+    return (nLen < 0) ? ERROR_CODE_IO : NATIVE_SUCCESS;
 }
 
 int StatImpl(const char* path, struct stat* buf)
@@ -186,8 +178,8 @@ int StatImpl(const char* path, struct stat* buf)
     if (!IsValidPath(path) || (buf == NULL)) {
         return ERROR_CODE_PARAM;
     }
-    int ret = stat(path, buf);
-    if (ret != NATIVE_SUCCESS) {
+
+    if (stat(path, buf) != NATIVE_SUCCESS) {
         return (-errno);
     }
     return NATIVE_SUCCESS;
@@ -198,8 +190,8 @@ int DeleteFileImpl(const char* src)
     if (!IsValidPath(src)) {
         return ERROR_CODE_PARAM;
     }
-    int ret = unlink(src);
-    if (ret != NATIVE_SUCCESS) {
+
+    if (unlink(src) != NATIVE_SUCCESS) {
         return (-errno);
     }
     return NATIVE_SUCCESS;
@@ -242,11 +234,11 @@ int CopyFileImpl(const char* src, const char* dest)
         return (-errno);
     }
     int ret = DoCopyFile(fdSrc, fdDest);
+    close(fdSrc);
+    close(fdDest);
     if (ret != NATIVE_SUCCESS) {
         unlink(dest);
     }
-    close(fdSrc);
-    close(fdDest);
     return ret;
 }
 
@@ -273,12 +265,9 @@ int WriteTextFile(const char* fileName, const void* buf, size_t len, bool append
     if (fileHandle < 0) {
         return (-errno);
     }
-    if (write(fileHandle, buf, len) != len) {
-        close(fileHandle);
-        return ERROR_CODE_IO;
-    }
+    int writeLen = write(fileHandle, buf, len);
     close(fileHandle);
-    return NATIVE_SUCCESS;
+    return (writeLen != len) ? ERROR_CODE_IO : NATIVE_SUCCESS;
 }
 
 int WriteArrayFile(const char* fileName, const void* buf, size_t len, unsigned int position, bool append)
@@ -314,12 +303,9 @@ int WriteArrayFile(const char* fileName, const void* buf, size_t len, unsigned i
             return ERROR_CODE_IO;
         }
     }
-    if (write(fileHandle, buf, len) != len) {
-        close(fileHandle);
-        return ERROR_CODE_IO;
-    }
+    int writeLen = write(fileHandle, buf, len);
     close(fileHandle);
-    return NATIVE_SUCCESS;
+    return (writeLen != len) ? ERROR_CODE_IO : NATIVE_SUCCESS;
 }
 
 int ReadFileImpl(const char* fileName, void* text, size_t len, unsigned int position, size_t* actualLen)
@@ -358,13 +344,9 @@ int ReadFileImpl(const char* fileName, void* text, size_t len, unsigned int posi
         return ERROR_CODE_IO;
     }
     int readLen = read(fileHandle, text, len);
-    *actualLen = readLen;
-    if (readLen < 0) {
-        close(fileHandle);
-        return ERROR_CODE_IO;
-    }
     close(fileHandle);
-    return NATIVE_SUCCESS;
+    *actualLen = readLen;
+    return (readLen < 0) ? ERROR_CODE_IO : NATIVE_SUCCESS;
 }
 
 int GetFileListImpl(const char* dirName, FileMetaInfo* fileList, unsigned int listNum)
@@ -427,10 +409,7 @@ int GetFileNum(const char* dirName)
         dir = readdir(fileDir);
     }
     closedir(fileDir);
-    if (sum == 0) {
-        return ERROR_CODE_IO;
-    }
-    return sum;
+    return (sum == 0) ? ERROR_CODE_IO : sum;
 }
 
 int AccessImpl(const char* fileName)
@@ -455,8 +434,8 @@ int CreateDirImpl(const char* fileName, bool recursive)
     if (recursive) {
         return MkdirRecursive(fileName);
     }
-    int ret = mkdir(fileName, S_IRUSR | S_IWUSR | S_IXUSR);
-    if (ret != NATIVE_SUCCESS) {
+
+    if (mkdir(fileName, S_IRUSR | S_IWUSR | S_IXUSR) != NATIVE_SUCCESS) {
         return (-errno);
     }
     return NATIVE_SUCCESS;
@@ -471,8 +450,7 @@ int RemoveDirImpl(const char* fileName, bool recursive)
     if (recursive) {
         return RmdirRecursive(fileName);
     }
-    ret = rmdir(fileName);
-    if (ret != NATIVE_SUCCESS) {
+    if (rmdir(fileName) != NATIVE_SUCCESS) {
         return (-errno);
     }
     return NATIVE_SUCCESS;

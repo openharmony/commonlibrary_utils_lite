@@ -129,12 +129,9 @@ int SetValue(const char* key, const char* value)
     if (fd < 0) {
         return (-errno);
     }
-    if (write(fd, value, strlen(value)) < 0) {
-        close(fd);
-        return ERROR_CODE_IO;
-    }
+    int ret = write(fd, value, strlen(value));
     close(fd);
-    return NATIVE_SUCCESS;
+    return (ret < 0) ? ERROR_CODE_IO : NATIVE_SUCCESS;
 }
 
 int DeleteValue(const char* key)
@@ -142,8 +139,7 @@ int DeleteValue(const char* key)
     if (key == NULL) {
         return ERROR_CODE_PARAM;
     }
-    int ret = unlink(key);
-    if (ret != NATIVE_SUCCESS) {
+    if (unlink(key) != NATIVE_SUCCESS) {
         return (-errno);
     }
     return NATIVE_SUCCESS;

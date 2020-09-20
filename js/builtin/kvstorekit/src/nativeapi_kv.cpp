@@ -75,8 +75,7 @@ int GetValueInner(const char* dataPath, const char* key, char* value)
     if (ret != NATIVE_SUCCESS) {
         return ret;
     }
-    ret = GetValue(g_kvFullPath, value);
-    return ret;
+    return GetValue(g_kvFullPath, value);
 }
 
 int SetValueInner(const char* dataPath, const char* key, const char* value)
@@ -85,8 +84,7 @@ int SetValueInner(const char* dataPath, const char* key, const char* value)
     if (ret != NATIVE_SUCCESS) {
         return ret;
     }
-    ret = SetValue(g_kvFullPath, value);
-    return ret;
+    return SetValue(g_kvFullPath, value);
 }
 
 int DeleteValueInner(const char* dataPath, const char* key)
@@ -95,8 +93,7 @@ int DeleteValueInner(const char* dataPath, const char* key)
     if (ret != NATIVE_SUCCESS) {
         return ret;
     }
-    ret = DeleteValue(g_kvFullPath);
-    return ret;
+    return DeleteValue(g_kvFullPath);
 }
 
 JSIValue ExecuteAsyncWork(const JSIValue thisVal, const JSIValue* args,
