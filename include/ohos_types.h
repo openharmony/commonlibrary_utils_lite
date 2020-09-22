@@ -12,32 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/**
- * @defgroup ohos_types OHOS Types
- * @ingroup utils
- * @addtogroup Types
- * @{
- *
- * @brief Defintion of basic data types.
- *
- * The data types are applicable to both the application and kernel. \n
- *
- * @since 1.0
- * @version 1.0
- */
-
-/**
- * @file ohos_init.h
- *
- * @brief Defintion of basic data types.
- *
- * The data types are applicable to both the application and kernel. \n
- *
- * @since 1.0
- * @version 1.0
- */
-
 #ifndef OHOS_TYPES_H
 #define OHOS_TYPES_H
 
@@ -47,8 +21,8 @@ extern "C"{
 #endif
 #endif /* __cplusplus */
 
-/**
- * @brief Defintion of basic data types.
+/*
+ * Defintion of basic data types.
  * The data types are applicable to both the application and kernel.
  */
 typedef unsigned char           uint8;
@@ -105,4 +79,4 @@ typedef unsigned int BOOL;
 #endif /* __cplusplus */
 
 #endif /* OHOS_TYPES_H */
-/** @} */
+

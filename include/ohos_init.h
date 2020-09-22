@@ -14,9 +14,7 @@
  */
 
 /**
- * @defgroup ohos_init OHOS Init
- * @ingroup utils
- * @addtogroup Init
+ * @addtogroup Init OHOS Init
  * @{
  *
  * @brief Provides the entries for initializing and starting services and features.

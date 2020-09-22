@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-/**
+/*
  * @defgroup utils_list Doubly linked list
  * @ingroup utils
  * @attention
@@ -39,7 +39,7 @@ typedef struct UTILS_DL_LIST {
     struct UTILS_DL_LIST *pstNext; /* < Current node's pointer to the next node */
 } UTILS_DL_LIST;
 
-/**
+/*
  * @ingroup utils_list
  *
  * @par Description:
@@ -62,7 +62,7 @@ static inline void UtilsListInit(UTILS_DL_LIST *list)
     list->pstPrev = list;
 }
 
-/**
+/*
  * @ingroup utils_list
  * @brief Point to the next node pointed to by the current node.
  *
@@ -84,7 +84,7 @@ static inline void UtilsListInit(UTILS_DL_LIST *list)
  */
 #define UTILS_DL_LIST_FIRST(object) ((object)->pstNext)
 
-/**
+/*
  * @ingroup utils_list
  * @brief Node is the end of the list.
  *
@@ -106,7 +106,7 @@ static inline void UtilsListInit(UTILS_DL_LIST *list)
  */
 #define UTILS_DL_LIST_IS_END(list, node) ((list) == (node) ? TRUE : FALSE)
 
-/**
+/*
  * @ingroup utils_list
  * @brief Node is on the list.
  *
@@ -128,7 +128,7 @@ static inline void UtilsListInit(UTILS_DL_LIST *list)
  */
 #define UTILS_DL_LIST_IS_ON_QUEUE(node) ((node)->pstPrev != NULL && (node)->pstNext != NULL)
 
-/**
+/*
  * @ingroup utils_list
  * @brief Point to the previous node pointed to by the current node.
  *
@@ -150,7 +150,7 @@ static inline void UtilsListInit(UTILS_DL_LIST *list)
  */
 #define UTILS_DL_LIST_LAST(object) ((object)->pstPrev)
 
-/**
+/*
  * @ingroup utils_list
  * @brief Insert a new node to a doubly linked list.
  *
@@ -177,7 +177,7 @@ static inline void UtilsListAdd(UTILS_DL_LIST *list, UTILS_DL_LIST *node)
     list->pstNext = node;
 }
 
-/**
+/*
  * @ingroup utils_list
  * @brief Insert a node to the tail of a doubly linked list.
  *
@@ -201,7 +201,7 @@ static inline void UtilsListTailInsert(UTILS_DL_LIST *list, UTILS_DL_LIST *node)
     UtilsListAdd(list->pstPrev, node);
 }
 
-/**
+/*
  * @ingroup utils_list
  * @brief Insert a node to the head of a doubly linked list.
  *
@@ -225,7 +225,7 @@ static inline void UtilsListHeadInsert(UTILS_DL_LIST *list, UTILS_DL_LIST *node)
     UtilsListAdd(list, node);
 }
 
-/**
+/*
  * @ingroup utils_list
  *
  * @par Description:
@@ -252,7 +252,7 @@ static inline void UtilsListDelete(UTILS_DL_LIST *node)
     node->pstPrev = NULL;
 }
 
-/**
+/*
  * @ingroup utils_list
  * @brief Identify whether a specified doubly linked list is empty.
  *
@@ -278,7 +278,7 @@ static inline bool UtilsListEmpty(UTILS_DL_LIST *list)
     return (bool)(list->pstNext == list);
 }
 
-/**
+/*
  * @ingroup utils_list
  * @brief Insert a new list to a doubly linked list.
  *
@@ -310,7 +310,7 @@ static inline void UtilsListAddList(UTILS_DL_LIST *oldList, UTILS_DL_LIST *newLi
     newListTail->pstNext = oldListHead;
 }
 
-/**
+/*
  * @ingroup utils_list
  * @brief Insert a doubly list to the tail of a doubly linked list.
  *
@@ -334,7 +334,7 @@ static inline void UtilsListTailInsertList(UTILS_DL_LIST *oldList, UTILS_DL_LIST
     UtilsListAddList(oldList->pstPrev, newList);
 }
 
-/**
+/*
  * @ingroup utils_list
  * @brief Insert a doubly list to the head of a doubly linked list.
  *
@@ -358,7 +358,7 @@ static inline void UtilsListHeadInsertList(UTILS_DL_LIST *oldList, UTILS_DL_LIST
     UtilsListAddList(oldList, newList);
 }
 
-/**
+/*
  * @ingroup utils_list
  * @brief Obtain the offset of a field to a structure address.
  *
@@ -379,7 +379,7 @@ static inline void UtilsListHeadInsertList(UTILS_DL_LIST *oldList, UTILS_DL_LIST
  */
 #define OFFSET_OF_FIELD(type, field) ((unsigned int)&((type *)0)->field)
 
-/**
+/*
  * @ingroup utils_list
  * @brief Obtain the pointer to a doubly linked list in a structure.
  *
@@ -400,7 +400,7 @@ static inline void UtilsListHeadInsertList(UTILS_DL_LIST *oldList, UTILS_DL_LIST
  */
 #define UTILS_OFF_SET_OF(type, member) ((unsigned int)&((type *)0)->member)
 
-/**
+/*
  * @ingroup utils_list
  * @brief Obtain the pointer to a structure that contains a doubly linked list.
  *
@@ -426,7 +426,7 @@ static inline void UtilsListHeadInsertList(UTILS_DL_LIST *oldList, UTILS_DL_LIST
 #define UTILS_DL_LIST_ENTRY(item, type, member) \
     ((type *)(void *)((char *)(item) - UTILS_OFF_SET_OF(type, member)))
 
-/**
+/*
  * @ingroup utils_list
  * @brief Iterate over a doubly linked list of given type.
  *
@@ -449,10 +449,10 @@ static inline void UtilsListHeadInsertList(UTILS_DL_LIST *oldList, UTILS_DL_LIST
  */
 #define UTILS_DL_LIST_FOR_EACH_ENTRY(item, list, type, member)             \
     for (item = UTILS_DL_LIST_ENTRY((list)->pstNext, type, member);        \
-         &(item)->member != (list);                                        \
+         &(item)->member != (list);                                      \
          item = UTILS_DL_LIST_ENTRY((item)->member.pstNext, type, member))
 
-/**
+/*
  * @ingroup utils_list
  * @brief iterate over a doubly linked list safe against removal of list entry.
  *
@@ -477,10 +477,10 @@ static inline void UtilsListHeadInsertList(UTILS_DL_LIST *oldList, UTILS_DL_LIST
 #define UTILS_DL_LIST_FOR_EACH_ENTRY_SAFE(item, next, list, type, member)               \
     for (item = UTILS_DL_LIST_ENTRY((list)->pstNext, type, member),                     \
          next = UTILS_DL_LIST_ENTRY((item)->member.pstNext, type, member);              \
-         &(item)->member != (list);                                                     \
+         &(item)->member != (list);                                                   \
          item = next, next = UTILS_DL_LIST_ENTRY((item)->member.pstNext, type, member))
 
-/**
+/*
  * @ingroup utils_list
  * @brief Delete initialize a doubly linked list.
  *
@@ -505,7 +505,7 @@ static inline void UtilsListDelInit(UTILS_DL_LIST *list)
     UtilsListInit(list);
 }
 
-/**
+/*
  * @ingroup utils_list
  * @brief iterate over a doubly linked list.
  *
@@ -525,11 +525,11 @@ static inline void UtilsListDelInit(UTILS_DL_LIST *list)
  * @see
  */
 #define UTILS_DL_LIST_FOR_EACH(item, list) \
-    for (item = (list)->pstNext;           \
-         (item) != (list);                 \
+    for (item = (list)->pstNext;         \
+         (item) != (list);               \
          item = (item)->pstNext)
 
-/**
+/*
  * @ingroup utils_list
  * @brief Iterate over a doubly linked list safe against removal of list entry.
  *
@@ -550,11 +550,11 @@ static inline void UtilsListDelInit(UTILS_DL_LIST *list)
  * @see
  */
 #define UTILS_DL_LIST_FOR_EACH_SAFE(item, next, list)      \
-    for (item = (list)->pstNext, next = (item)->pstNext;   \
-         (item) != (list);                                 \
+    for (item = (list)->pstNext, next = (item)->pstNext; \
+         (item) != (list);                               \
          item = next, next = (item)->pstNext)
 
-/**
+/*
  * @ingroup utils_list
  * @brief Initialize a double linked list.
  *
@@ -592,7 +592,7 @@ static inline void UtilsListDelInit(UTILS_DL_LIST *list)
             __t = NULL;                                                \
         } else {                                                       \
             __t = UTILS_DL_LIST_ENTRY((list)->pstNext, type, element); \
-            UtilsListDelete((list)->pstNext);                          \
+            UtilsListDelete((list)->pstNext);                         \
         }                                                              \
         __t;                                                           \
     } while (0)
@@ -615,4 +615,3 @@ static inline void UtilsListDelInit(UTILS_DL_LIST *list)
 #endif /* __cplusplus */
 
 #endif /* _UTILS_LIST_H */
-/** @} */

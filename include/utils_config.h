@@ -14,8 +14,6 @@
  */
 
 /**
- * @defgroup utils_config System Config
- * @ingroup utils
  * @addtogroup utils_config
  * @{
  *
