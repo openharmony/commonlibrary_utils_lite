@@ -14,6 +14,8 @@
  */
 
 /**
+ * @defgroup utils_file File Operations.
+ * @ingroup utils
  * @addtogroup utils_file
  * @{
  *
@@ -182,7 +184,7 @@ int UtilsFileClose(int fd);
  * @since 1.0
  * @version 1.0
  */
-int UtilsFileRead(int fd, char* buf, unsigned int len);
+int UtilsFileRead(int fd, char *buf, unsigned int len);
 
 /**
  * @brief Writes a specified length of data into a file with the specified file descriptor.
@@ -194,7 +196,7 @@ int UtilsFileRead(int fd, char* buf, unsigned int len);
  * @since 1.0
  * @version 1.0
  */
-int UtilsFileWrite(int fd, const char* buf, unsigned int len);
+int UtilsFileWrite(int fd, const char *buf, unsigned int len);
 
 /**
  * @brief Deletes a specified file.
@@ -206,7 +208,7 @@ int UtilsFileWrite(int fd, const char* buf, unsigned int len);
  * @since 1.0
  * @version 1.0
  */
-int UtilsFileDelete(const char* path);
+int UtilsFileDelete(const char *path);
 
 /**
  * @brief Obtains the file size.
@@ -217,7 +219,7 @@ int UtilsFileDelete(const char* path);
  * @since 1.0
  * @version 1.0
  */
-int UtilsFileStat(const char* path, unsigned int* fileSize);
+int UtilsFileStat(const char *path, unsigned int *fileSize);
 
 /**
  * @brief Adjusts the read and write position offset in a file.

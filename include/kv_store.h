@@ -14,6 +14,8 @@
  */
 
 /**
+ * @defgroup kv_store KV Storage
+ * @ingroup utils
  * @addtogroup kv_store
  * @{
  *
