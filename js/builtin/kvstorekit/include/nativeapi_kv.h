@@ -22,8 +22,9 @@ namespace OHOS {
 namespace ACELite {
 class NativeapiKv {
 public:
-    NativeapiKv() {}
-    ~NativeapiKv() {}
+    NativeapiKv() = default;
+    ~NativeapiKv() = default;
+
     static JSIValue Get(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
     static JSIValue Set(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
     static JSIValue Delete(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);

@@ -22,8 +22,8 @@ namespace OHOS {
 namespace ACELite {
 class NativeapiDeviceInfo {
 public:
-    NativeapiDeviceInfo() {}
-    ~NativeapiDeviceInfo() {}
+    NativeapiDeviceInfo() = default;
+    ~NativeapiDeviceInfo() = default;
 
     static JSIValue GetDeviceInfo(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum);
 };
