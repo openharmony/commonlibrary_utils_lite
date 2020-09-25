@@ -24,6 +24,9 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include "nativeapi_config.h"
+#if (defined _WIN32 || defined _WIN64)
+#include "shlwapi.h"
+#endif
 
 #define BUFFER_SIZE 512
 
@@ -44,9 +47,16 @@ static bool IsValidPath(const char* path)
 
 static int GetRealPath(const char* originPath, char* trustPath, size_t tPathLen)
 {
+#if (defined _WIN32 || defined _WIN64)
+    if (PathCanonicalize(originPath, trustPath) == true) {
+        return NATIVE_SUCCESS;
+    }
+#else
     if (realpath(originPath, trustPath) != NULL) {
         return NATIVE_SUCCESS;
     }
+#endif
+
     if (errno == ENOENT) {
         if (strncpy_s(trustPath, tPathLen, originPath, strlen(originPath)) == EOK) {
             return NATIVE_SUCCESS;
@@ -124,7 +134,11 @@ static int MakeParent(const char* path, char* firstPath, size_t fPathLen, int* d
             free(fullPath);
             return ERROR_CODE_PARAM;
         }
+#if (defined _WIN32 || defined _WIN64)
+        ret = mkdir(fullPath);
+#else
         ret = mkdir(fullPath, S_IRUSR | S_IWUSR | S_IXUSR);
+#endif
         if ((ret == NATIVE_SUCCESS) && (*dirNum == 1)) {
             if ((strcpy_s(firstPath, fPathLen, fullPath) != EOK)) {
                 free(fullPath);
@@ -435,7 +449,12 @@ int CreateDirImpl(const char* fileName, bool recursive)
         return MkdirRecursive(fileName);
     }
 
-    if (mkdir(fileName, S_IRUSR | S_IWUSR | S_IXUSR) != NATIVE_SUCCESS) {
+#if (defined _WIN32 || defined _WIN64)
+    int ret = mkdir(fileName);
+#else
+    int ret = mkdir(fileName, S_IRUSR | S_IWUSR | S_IXUSR);
+#endif
+    if (ret != NATIVE_SUCCESS) {
         return (-errno);
     }
     return NATIVE_SUCCESS;
