@@ -24,6 +24,9 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include "nativeapi_config.h"
+#if (defined _WIN32 || defined _WIN64)
+#include "shlwapi.h"
+#endif
 
 static char g_kvFolder[FILE_NAME_MAX_LEN + 1] = {0};
 
@@ -55,9 +58,16 @@ static int GetKvFolder(const char* dataPath)
 
 static int GetRealPath(const char* originPath, char* trustPath, size_t tPathLen)
 {
+#if (defined _WIN32 || defined _WIN64)
+    if (PathCanonicalize(originPath, trustPath) == true) {
+        return NATIVE_SUCCESS;
+    }
+#else
     if (realpath(originPath, trustPath) != NULL) {
         return NATIVE_SUCCESS;
     }
+#endif
+
     if (errno == ENOENT) {
         if (strncpy_s(trustPath, tPathLen, originPath, strlen(originPath)) == EOK) {
             return NATIVE_SUCCESS;
@@ -75,9 +85,15 @@ int InitKv(const char* dataPath)
     if (access(g_kvFolder, F_OK) == F_OK) {
         return NATIVE_SUCCESS;
     }
+#if (defined _WIN32 || defined _WIN64)
+    if (mkdir(g_kvFolder) != 0) {
+        return ERROR_CODE_GENERAL;
+    }
+#else
     if (mkdir(g_kvFolder, S_IRUSR | S_IWUSR | S_IXUSR) != 0) {
         return ERROR_CODE_GENERAL;
     }
+#endif
     return NATIVE_SUCCESS;
 }
 
