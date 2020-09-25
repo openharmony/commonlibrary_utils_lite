@@ -28,8 +28,12 @@ const unsigned int PREFIX_LEN = strlen(FILE_PREFIX);
 
 bool IsValidPath(const char* path)
 {
+    if (path == nullptr) {
+        return false;
+    }
+
     size_t pathLen = strnlen(path, URI_NAME_MAX_LEN + 1);
-    if ((path == nullptr) || (pathLen > URI_NAME_MAX_LEN)) {
+    if (pathLen > URI_NAME_MAX_LEN) {
         return false;
     }
     if ((pathLen < PREFIX_LEN) || (strncmp(path, FILE_PREFIX, PREFIX_LEN) != 0)) {
