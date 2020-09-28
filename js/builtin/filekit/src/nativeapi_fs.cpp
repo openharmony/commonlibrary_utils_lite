@@ -42,6 +42,9 @@ bool IsValidPath(const char* path)
     if ((strstr(path, "/./") != nullptr) || (strstr(path, "/../") != nullptr)) {
         return false;
     }
+    if (strpbrk(path + PREFIX_LEN, "\"*+,:;<=>\?[]|\x7F")) {
+        return false;
+    }
     return true;
 }
 
