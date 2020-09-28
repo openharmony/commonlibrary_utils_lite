@@ -39,9 +39,6 @@ static bool IsValidPath(const char* path)
     if ((pathLen == 0) || (pathLen > FILE_NAME_MAX_LEN)) {
         return false;
     }
-    if (strpbrk(path, "\"*+,:;<=>\?[]|\x7F")) {
-        return false;
-    }
     return true;
 }
 
