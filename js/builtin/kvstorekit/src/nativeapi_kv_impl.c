@@ -59,7 +59,7 @@ static int GetKvFolder(const char* dataPath)
 static int GetRealPath(const char* originPath, char* trustPath, size_t tPathLen)
 {
 #if (defined _WIN32 || defined _WIN64)
-    if (PathCanonicalize(originPath, trustPath) == true) {
+    if (PathCanonicalize(trustPath, originPath)) {
         return NATIVE_SUCCESS;
     }
 #else
