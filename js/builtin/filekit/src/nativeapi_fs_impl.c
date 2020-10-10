@@ -39,16 +39,13 @@ static bool IsValidPath(const char* path)
     if ((pathLen == 0) || (pathLen > FILE_NAME_MAX_LEN)) {
         return false;
     }
-    if (strpbrk(path, "\"*+,:;<=>\?[]|\x7F")) {
-        return false;
-    }
     return true;
 }
 
 static int GetRealPath(const char* originPath, char* trustPath, size_t tPathLen)
 {
 #if (defined _WIN32 || defined _WIN64)
-    if (PathCanonicalize(originPath, trustPath) == true) {
+    if (PathCanonicalize(trustPath, originPath)) {
         return NATIVE_SUCCESS;
     }
 #else
