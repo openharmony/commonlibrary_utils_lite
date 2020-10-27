@@ -79,6 +79,10 @@ static int RmdirRecursive(const char* fileName)
         goto MALLOC_ERROR;
     }
     while (dir != NULL) {
+        if (strcmp(dir->d_name, ".") == 0 || strcmp(dir->d_name, "..") == 0) {
+            dir = readdir(fileDir);
+            continue;
+        }
         if (memset_s(fullPath, FILE_NAME_MAX_LEN + 1, 0x0, FILE_NAME_MAX_LEN + 1) != EOK) {
             goto EXIT;
         }
@@ -378,6 +382,10 @@ int GetFileListImpl(const char* dirName, FileMetaInfo* fileList, unsigned int li
         goto EXIT;
     }
     while ((dir != NULL) && (fileIndex < listNum)) {
+        if (strcmp(dir->d_name, ".") == 0 || strcmp(dir->d_name, "..") == 0) {
+            dir = readdir(fileDir);
+            continue;
+        }
         if (memset_s(fullFileName, FILE_NAME_MAX_LEN + 1, 0x0, FILE_NAME_MAX_LEN + 1) != EOK) {
             goto EXIT;
         }
@@ -416,6 +424,10 @@ int GetFileNum(const char* dirName)
     struct dirent* dir = readdir(fileDir);
     int sum = 0;
     while (dir != NULL) {
+        if (strcmp(dir->d_name, ".") == 0 || strcmp(dir->d_name, "..") == 0) {
+            dir = readdir(fileDir);
+            continue;
+        }
         sum++;
         dir = readdir(fileDir);
     }
