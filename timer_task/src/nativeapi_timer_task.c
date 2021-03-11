@@ -50,5 +50,5 @@ int StopTimerTask(const timerHandle_t timerHandle)
     if (timerHandle == NULL) {
         return EC_FAILURE;
     }
-    return KalTimerDelete((KalTimerId)timerHandle);;
+    return KalTimerDelete((KalTimerId)timerHandle);
 }

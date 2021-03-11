@@ -47,7 +47,7 @@ boolean IsValidValue(const char* value, unsigned int len)
 
 boolean IsValidKey(const char* key)
 {
-    if (key == NULL || !IsValidValue(key, MAX_KEY_LEN)) {
+    if (!IsValidValue(key, MAX_KEY_LEN)) {
         return FALSE;
     }
     size_t keyLen = strnlen(key, MAX_KEY_LEN);

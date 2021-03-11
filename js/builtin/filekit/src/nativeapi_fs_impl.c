@@ -347,7 +347,7 @@ int ReadFileImpl(const char* fileName, void* text, size_t len, unsigned int posi
         close(fileHandle);
         return ERROR_CODE_IO;
     }
-    if (position > info.st_size) {
+    if (position >= info.st_size) {
         close(fileHandle);
         return ERROR_CODE_PARAM;
     }
@@ -457,7 +457,6 @@ int CreateDirImpl(const char* fileName, bool recursive)
     if (recursive) {
         return MkdirRecursive(fileName);
     }
-
 #if (defined _WIN32 || defined _WIN64)
     int ret = mkdir(fileName);
 #else

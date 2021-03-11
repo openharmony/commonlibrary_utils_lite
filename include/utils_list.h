@@ -26,7 +26,6 @@
 #define _UTILS_LIST_H
 
 #include <stdbool.h>
-#include <stdint.h>
 #include "ohos_types.h"
 
 #ifdef __cplusplus
@@ -378,7 +377,7 @@ static inline void UtilsListHeadInsertList(UTILS_DL_LIST *oldList, UTILS_DL_LIST
  * <ul><li>utils_list.h: the header file that contains the API declaration.</li></ul>
  * @see
  */
-#define OFFSET_OF_FIELD(type, field) ((uintptr_t)&((type *)0)->field)
+#define OFFSET_OF_FIELD(type, field) ((unsigned int)&((type *)0)->field)
 
 /*
  * @ingroup utils_list
@@ -399,7 +398,7 @@ static inline void UtilsListHeadInsertList(UTILS_DL_LIST *oldList, UTILS_DL_LIST
  * <ul><li>utils_list.h: the header file that contains the API declaration.</li></ul>
  * @see
  */
-#define UTILS_OFF_SET_OF(type, member) ((uintptr_t)&((type *)0)->member)
+#define UTILS_OFF_SET_OF(type, member) ((unsigned int)&((type *)0)->member)
 
 /*
  * @ingroup utils_list

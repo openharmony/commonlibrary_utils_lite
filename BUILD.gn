@@ -15,7 +15,10 @@ import("//build/lite/config/subsystem/lite_subsystem.gni")
 import("//build/lite/ndk/ndk.gni")
 
 lite_subsystem("utils") {
-  subsystem_components = [ "kv_store:kv_store" ]
+  subsystem_components = [
+    "kv_store:kv_store",
+    "os_dump:utils_os_dump",
+  ]
 
   if (ohos_kernel_type == "liteos_m") {
     subsystem_components += [ "file:file" ]
