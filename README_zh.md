@@ -165,11 +165,9 @@ utils/native/lite/                 # 公共基础库根目录
 
 ## 涉及仓<a name="section4571352889"></a>
 
-iothardware\_frameworks\_wifiiot\_lite
-
-iothardware\_hals\_wifiiot\_lite
-
-iothardware\_interfaces\_kits\_wifiiot\_lite
+[公共基础](https://gitee.com/openharmony/docs/blob/master/zh-cn/readme/%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80.md)
 
 utils\_native\_lite
+
+[iothardware\_peripheral](https://gitee.com/openharmony/iothardware_peripheral/blob/master/README_zh.md)
 

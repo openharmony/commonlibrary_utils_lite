@@ -165,11 +165,9 @@ utils/native/lite/                 # Root directory
 
 ## Repositories Involved<a name="section4571352889"></a>
 
-iothardware\_frameworks\_wifiiot\_lite
-
-iothardware\_hals\_wifiiot\_lite
-
-iothardware\_interfaces\_kits\_wifiiot\_lite
+[utils](https://gitee.com/openharmony/docs/blob/master/en/readme/utils.md)
 
 utils\_native\_lite
+
+[iothardware\_peripheral](https://gitee.com/openharmony/iothardware_peripheral/blob/master/README.md)
 
