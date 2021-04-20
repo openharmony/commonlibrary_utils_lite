@@ -14,6 +14,7 @@
  */
 
 #include "nativeapi_deviceinfo.h"
+#include <string>
 #include "global.h"
 #include "js_async_work.h"
 #include "nativeapi_common.h"
@@ -69,13 +70,11 @@ void InitDeviceModule(JSIValue exports)
 
 bool NativeapiDeviceInfo::GetAPILevel(JSIValue result)
 {
-    char* apiLevel = GetSdkApiLevel();
-    if (apiLevel == nullptr) {
+    int apiLevel = GetSdkApiVersion();
+    if (apiLevel < 1) {
         return false;
     }
-    JSI::SetStringProperty(result, "apiVersion", apiLevel);
-    free(apiLevel);
-    apiLevel = nullptr;
+    JSI::SetStringProperty(result, "apiVersion", std::to_string(apiLevel).c_str());
     return true;
 }
 
@@ -86,13 +85,11 @@ JSIValue NativeapiDeviceInfo::GetDeviceInfo(const JSIValue thisVal, const JSIVal
 
 bool NativeapiDeviceInfo::GetDeviceType(JSIValue result)
 {
-    char* deviceType = GetProductType();
+    const char* deviceType = ::GetDeviceType();
     if (deviceType == nullptr) {
         return false;
     }
     JSI::SetStringProperty(result, "deviceType", deviceType);
-    free(deviceType);
-    deviceType = nullptr;
     return true;
 }
 
@@ -111,9 +108,9 @@ bool NativeapiDeviceInfo::GetLanguage(JSIValue result)
 bool NativeapiDeviceInfo::GetProductInfo(JSIValue result)
 {
     bool isSuccess = true;
-    char* brand =  GetBrand();
-    char* manufacture = GetManufacture();
-    char* model = GetProductModel();
+    const char* brand =  GetBrand();
+    const char* manufacture = GetManufacture();
+    const char* model = GetProductModel();
     if (brand == nullptr || manufacture == nullptr || model == nullptr) {
         isSuccess = false;
     } else {
@@ -139,18 +136,6 @@ bool NativeapiDeviceInfo::GetProductInfo(JSIValue result)
     const char * const defaultScreenShape = "rect";
     JSI::SetNumberProperty(result, "screenDensity", (double)defaultScreenDensity);
     JSI::SetStringProperty(result, "screenShape", defaultScreenShape);
-    if (brand != nullptr) {
-        free(brand);
-        brand = nullptr;
-    }
-    if (manufacture != nullptr) {
-        free(manufacture);
-        manufacture = nullptr;
-    }
-    if (model != nullptr) {
-        free(model);
-        model = nullptr;
-    }
     return isSuccess;
 }
 
