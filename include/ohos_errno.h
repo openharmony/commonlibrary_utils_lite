@@ -17,8 +17,8 @@
 #ifdef __cplusplus
 #if __cplusplus
 extern "C" {
-#endif /* __cpluscplus */
-#endif /* __cpluscplus */
+#endif /* __cplusplus */
+#endif /* __cplusplus */
 /* --------------------------------------------------------------------------------------------*
  * Defintion of error code. The error codes are applicable to both the application and kernel
  *-------------------------------------------------------------------------------------------- */
@@ -58,6 +58,6 @@ enum OHOSLiteErrorCode {
 #ifdef __cplusplus
 #if __cplusplus
 }
-#endif /* __cpluscplus */
-#endif /* __cpluscplus */
+#endif /* __cplusplus */
+#endif /* __cplusplus */
 #endif // OHOS_ERRNO_H
