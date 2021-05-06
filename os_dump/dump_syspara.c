@@ -21,8 +21,26 @@
 #include "wifiiot_at.h"
 #endif
 
+#define API_VERSION_LEN 10
+
+static const char* GetSdkApiLevel()
+{
+    static char sdkApiVersion[API_VERSION_LEN] = {0};
+    int sdkApi = GetSdkApiVersion();
+    sprintf_s(sdkApiVersion, API_VERSION_LEN, "%d", sdkApi);
+    return sdkApiVersion;
+}
+
+static const char* GetFirstApiLevel()
+{
+    static char firstApiVersion[API_VERSION_LEN] = {0};
+    int firstApi = GetSdkApiVersion();
+    sprintf_s(firstApiVersion, API_VERSION_LEN, "%d", firstApi);
+    return firstApiVersion;
+}
+
 static const SysParaInfoItem SYSPARA_LIST[] = {
-    {"ProductType", GetProductType},
+    {"DeviceType", GetDeviceType},
     {"Manufacture", GetManufacture},
     {"Brand", GetBrand},
     {"MarketName", GetMarketName},
@@ -31,13 +49,13 @@ static const SysParaInfoItem SYSPARA_LIST[] = {
     {"SoftwareModel", GetSoftwareModel},
     {"HardwareModel", GetHardwareModel},
     {"Serial", GetSerial},
-    {"OsName", GetOsName},
+    {"OSFullName", GetOSFullName},
     {"DisplayVersion", GetDisplayVersion},
     {"BootloaderVersion", GetBootloaderVersion},
     {"GetSecurityPatchTag", GetSecurityPatchTag},
     {"AbiList", GetAbiList},
-    {"SdkApiLevel", GetSdkApiLevel},
-    {"FirstApiLevel", GetFirstApiLevel},
+    {"SdkApiVersion", GetSdkApiLevel},
+    {"FirstApiVersion", GetFirstApiLevel},
     {"IncrementalVersion", GetIncrementalVersion},
     {"VersionId", GetVersionId},
     {"BuildType", GetBuildType},
@@ -64,8 +82,6 @@ int QuerySysparaCmd()
     while (index < dumpInfoItemNum) {
         temp = SYSPARA_LIST[index].getInfoValue();
         pfnPrintf("%s:%s\r\n", SYSPARA_LIST[index].infoName, temp);
-        free(temp);
-        temp = NULL;
         index++;
     }
     pfnPrintf("=======================\r\n");
