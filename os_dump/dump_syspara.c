@@ -34,7 +34,7 @@ static const char* GetSdkApiLevel()
 static const char* GetFirstApiLevel()
 {
     static char firstApiVersion[API_VERSION_LEN] = {0};
-    int firstApi = GetSdkApiVersion();
+    int firstApi = GetFirstApiVersion();
     sprintf_s(firstApiVersion, API_VERSION_LEN, "%d", firstApi);
     return firstApiVersion;
 }
