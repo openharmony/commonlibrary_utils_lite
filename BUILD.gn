@@ -11,17 +11,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import("//build/lite/config/subsystem/lite_subsystem.gni")
 import("//build/lite/ndk/ndk.gni")
 
-lite_subsystem("utils") {
-  subsystem_components = [
+group("utils") {
+  deps = [
     "kv_store:kv_store",
     "os_dump:utils_os_dump",
   ]
 
   if (ohos_kernel_type == "liteos_m") {
-    subsystem_components += [ "file:file" ]
+    deps += [ "file:file" ]
   }
 }
 
