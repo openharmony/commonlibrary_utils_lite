@@ -20,7 +20,7 @@ extern "C" {
 #endif /* __cplusplus */
 #endif /* __cplusplus */
 /* --------------------------------------------------------------------------------------------*
- * Defintion of error code. The error codes are applicable to both the application and kernel
+ * Definition of error code. The error codes are applicable to both the application and kernel
  *-------------------------------------------------------------------------------------------- */
 enum OHOSLiteErrorCode {
     EC_SUCCESS = 0,     /* OK or No error */
