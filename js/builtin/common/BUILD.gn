@@ -13,7 +13,14 @@
 # limitations under the License.
 #
 
-shared_library("ace_kit_common") {
+import("//build/lite/config/component/lite_component.gni")
+
+lite_library("ace_kit_common") {
+  if (ohos_kernel_type == "liteos_m") {
+    target_type = "static_library"
+  } else {
+    target_type = "shared_library"
+  }
   sources = [ "src/nativeapi_common.cpp" ]
   cflags = [ "-Wall" ]
   cflags_cc = cflags

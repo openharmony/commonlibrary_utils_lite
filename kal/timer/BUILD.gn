@@ -11,15 +11,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-shared_library("kal_timer") {
-    sources = [
-        "src/kal.c",
-    ]
-    cflags = ["-Wall"]
-    cflags_cc = cflags
+import("//build/lite/config/component/lite_component.gni")
 
-    include_dirs = [
-        "include",
-        "//utils/native/lite/include",
-    ]
+lite_library("kal_timer") {
+  if (ohos_kernel_type == "liteos_m") {
+    target_type = "static_library"
+  } else {
+    target_type = "shared_library"
+  }
+  sources = [ "src/kal.c" ]
+  cflags = [ "-Wall" ]
+  cflags_cc = cflags
+
+  include_dirs = [
+    "include",
+    "//utils/native/lite/include",
+  ]
 }
