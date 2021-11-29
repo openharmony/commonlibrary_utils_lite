@@ -11,20 +11,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-shared_library("ace_kit_timer") {
-    sources = [
-        "src/nativeapi_timer_task.c",
-    ]
-    cflags = ["-Wall"]
-    cflags_cc = cflags
+import("//build/lite/config/component/lite_component.gni")
 
-    include_dirs = [
-        "include",
-        "//utils/native/lite/include",
-        "//utils/native/lite/kal/timer/include",
-    ]
-    if (ohos_kernel_type == "liteos_a") {
-        include_dirs += ["//third_party/musl/include"]
-    }
-    public_deps = ["//utils/native/lite/kal/timer:kal_timer"]
+lite_library("ace_kit_timer") {
+  if (ohos_kernel_type == "liteos_m") {
+    target_type = "static_library"
+  } else {
+    target_type = "shared_library"
+  }
+  sources = [ "src/nativeapi_timer_task.c" ]
+  cflags = [ "-Wall" ]
+  cflags_cc = cflags
+
+  include_dirs = [
+    "include",
+    "//utils/native/lite/include",
+    "//utils/native/lite/kal/timer/include",
+  ]
+  if (ohos_kernel_type == "liteos_a") {
+    include_dirs += [ "//third_party/musl/include" ]
+  }
+  public_deps = [ "//utils/native/lite/kal/timer:kal_timer" ]
 }

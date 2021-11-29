@@ -13,9 +13,15 @@
 # limitations under the License.
 #
 
+import("//build/lite/config/component/lite_component.gni")
 import("//build/lite/config/subsystem/aafwk/path.gni")
 
-shared_library("ace_kit_kvstore") {
+lite_library("ace_kit_kvstore") {
+  if (ohos_kernel_type == "liteos_m") {
+    target_type = "static_library"
+  } else {
+    target_type = "shared_library"
+  }
   sources = [
     "src/nativeapi_kv.cpp",
     "src/nativeapi_kv_impl.c",
