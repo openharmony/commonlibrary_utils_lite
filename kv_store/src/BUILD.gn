@@ -11,15 +11,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+declare_args() {
+  enable_ohos_utils_native_lite_kv_store_use_posix_kv_api = true
+}
+
 if (ohos_kernel_type == "liteos_m") {
   static_library("utils_kv_store") {
-    sources = [
-      "kvstore_common/kvstore_common.c",
-      "kvstore_impl_hal/kv_store.c",
-    ]
+    sources = [ "kvstore_common/kvstore_common.c" ]
+    if (enable_ohos_utils_native_lite_kv_store_use_posix_kv_api) {
+      sources += [ "kvstore_impl_posix/kv_store.c" ]
+    } else {
+      sources += [ "kvstore_impl_hal/kv_store.c" ]
+    }
     include_dirs = [
       "//utils/native/lite/include",
       "kvstore_common",
+      "//utils/native/lite/kv_store/innerkits",
     ]
   }
 } else {
