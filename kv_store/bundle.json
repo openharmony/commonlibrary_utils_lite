@@ -42,7 +42,7 @@
             "SystemCapability.Utils.kv_store"
         ],
         "features": [],
-        "adated_system_type": [
+        "adapted_system_type": [
             "min",
             "small"
         ],
