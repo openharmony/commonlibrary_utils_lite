@@ -18,7 +18,7 @@
 
 typedef struct {
     char *infoName;
-    char *(*getInfoValue)();
+    const char *(*getInfoValue)(void);
 } SysParaInfoItem;
 
 int QuerySysparaCmd();

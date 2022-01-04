@@ -16,6 +16,7 @@
 #include "dump_syspara.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "securec.h"
 #include "parameter.h"
 #if defined(__LITEOS_RISCV__)
 #include "wifiiot_at.h"
@@ -28,7 +29,7 @@ static const char* GetSdkApiLevel()
     static char sdkApiVersion[API_VERSION_LEN] = {0};
     int sdkApi = GetSdkApiVersion();
     sprintf_s(sdkApiVersion, API_VERSION_LEN, "%d", sdkApi);
-    return sdkApiVersion;
+    return (const char*)sdkApiVersion;
 }
 
 static const char* GetFirstApiLevel()
@@ -36,7 +37,7 @@ static const char* GetFirstApiLevel()
     static char firstApiVersion[API_VERSION_LEN] = {0};
     int firstApi = GetFirstApiVersion();
     sprintf_s(firstApiVersion, API_VERSION_LEN, "%d", firstApi);
-    return firstApiVersion;
+    return (const char*)firstApiVersion;
 }
 
 static const SysParaInfoItem SYSPARA_LIST[] = {
@@ -69,7 +70,7 @@ int QuerySysparaCmd()
 {
     int index = 0;
     int dumpInfoItemNum = (sizeof(SYSPARA_LIST) / sizeof(SysParaInfoItem));
-    char *temp = NULL;
+    const char *temp = NULL;
     int (*pfnPrintf)(const char *format, ...) = NULL;
 #if defined(__LITEOS_RISCV__)
     pfnPrintf = &AtPrintf;
