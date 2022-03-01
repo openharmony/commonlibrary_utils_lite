@@ -31,7 +31,7 @@ static const ServiceItem SERVICE_LIST[] = {
 
 static void Usage()
 {
-    printf("usage os_dump [--help | -l | SERVICE]\n"
+    printf("Usage:os_dump [--help | -l | SERVICE]\n"
         "         --help: shows this help\n"
         "         -l: only list services, do not dump them\n"
         "         SERVICE: dumps only service SERVICE\n");
