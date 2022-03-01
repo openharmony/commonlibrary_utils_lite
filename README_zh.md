@@ -57,7 +57,7 @@
 </td>
 <td class="cellrowborder" valign="top" width="24.77%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001052623010_p16300204280"><a name="zh-cn_topic_0000001052623010_p16300204280"></a><a name="zh-cn_topic_0000001052623010_p16300204280"></a>LiteOS-M内核、LiteOS-A内核</p>
 </td>
-<td class="cellrowborder" valign="top" width="54.010000000000005%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0000001052623010_p1563018208286"><a name="zh-cn_topic_0000001052623010_p1563018208286"></a><a name="zh-cn_topic_0000001052623010_p1563018208286"></a>提供dump系统属性的命令行工具。</p>
+<td class="cellrowborder" valign="top" width="54.010000000000005%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0000001052623010_p1563018208286"><a name="zh-cn_topic_0000001052623010_p1563018208286"></a><a name="zh-cn_topic_0000001052623010_p1563018208286"></a>提供Dump系统属性的命令行工具。</p>
 </td>
 </tr>
 </tbody>
@@ -73,7 +73,7 @@ utils/native/lite/              # 公共基础库根目录
 ├── include                     # 公共基础库对外接口文件
 ├── js                          # JS API目录                 
 │   └── builtin
-│       ├── common
+│       ├── common              # Builtin公共函数
 │       ├── deviceinfokit       # 设备信息Kit
 │       ├── filekit             # 文件Kit
 │       └── kvstorekit          # KV存储Kit

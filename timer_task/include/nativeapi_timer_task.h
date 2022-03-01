@@ -24,7 +24,7 @@ extern "C" {
 #endif
 #endif /* __cplusplus */
 
-typedef void *timerHandle_t;
+typedef void* timerHandle_t;
 
 int InitTimerTask();
 int StartTimerTask(bool isPeriodic, const unsigned int delay, void* userCallback,
