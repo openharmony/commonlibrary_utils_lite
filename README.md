@@ -73,7 +73,7 @@ utils/native/lite/              # Root directory
 ├── include                     # Header files of external APIs
 ├── js                          # JavaScript APIs
 │   └── builtin
-│       ├── common
+│       ├── common              # Builtin common function
 │       ├── deviceinfokit       # Device information kit
 │       ├── filekit             # File kit
 │       └── kvstorekit          # KV store kit
