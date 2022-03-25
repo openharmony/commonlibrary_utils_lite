@@ -15,6 +15,7 @@
 
 #include "nativeapi_fs.h"
 #include <securec.h>
+#include <new>
 #include "ability_env.h"
 #include "js_async_work.h"
 #include "nativeapi_common.h"
