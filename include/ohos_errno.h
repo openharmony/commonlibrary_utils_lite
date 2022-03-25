@@ -30,7 +30,7 @@ enum OHOSLiteErrorCode {
     EC_ADDRESS = -4,  /* Memory or bus address error */
     EC_IOERROR = -5,  /* I/O error */
     EC_BUSBUSY = -6,  /* xxx bus busy */
-    EC_NORESPONCE = -7,  /* Function is no responce */
+    EC_NORESPONCE = -7,  /* Function is no response */
     EC_NODEVICE = -8,  /* No such device */
     EC_INVALID = -9,  /* Invalid argument */
     EC_BUSY = -10, /* Device or resource busy */
