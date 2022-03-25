@@ -15,6 +15,7 @@
 
 #include "nativeapi_kv.h"
 #include <securec.h>
+#include <new>
 #include "ability_env.h"
 #include "js_async_work.h"
 #include "nativeapi_common.h"
@@ -103,7 +104,7 @@ JSIValue ExecuteAsyncWork(const JSIValue thisVal, const JSIValue* args,
     if (!NativeapiCommon::IsValidJSIValue(args, argsNum)) {
         return undefValue;
     }
-    FuncParams* params = new FuncParams();
+    FuncParams* params = new(std::nothrow) FuncParams();
     if (params == nullptr) {
         return undefValue;
     }
@@ -277,7 +278,7 @@ JSIValue NativeapiKv::Delete(const JSIValue thisVal, const JSIValue* args, uint8
 JSIValue NativeapiKv::Clear(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
 {
     JSIValue undefValue = JSI::CreateUndefined();
-    FuncParams* params = new FuncParams();
+    FuncParams* params = new(std::nothrow) FuncParams();
     if (params == nullptr) {
         return undefValue;
     }

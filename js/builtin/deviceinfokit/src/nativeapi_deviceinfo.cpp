@@ -15,6 +15,7 @@
 
 #include "nativeapi_deviceinfo.h"
 #include <string>
+#include <new>
 #include "global.h"
 #include "js_async_work.h"
 #include "nativeapi_common.h"
@@ -32,7 +33,7 @@ JSIValue ExecuteAsyncWork(const JSIValue thisVal, const JSIValue* args,
     if (!NativeapiCommon::IsValidJSIValue(args, argsNum)) {
         return undefValue;
     }
-    FuncParams* params = new FuncParams();
+    FuncParams* params = new(std::nothrow) FuncParams();
     if (params == nullptr) {
         return undefValue;
     }
