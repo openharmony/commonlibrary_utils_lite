@@ -73,7 +73,7 @@ JSIValue ExecuteAsyncWork(const JSIValue thisVal, const JSIValue* args,
     if (!NativeapiCommon::IsValidJSIValue(args, argsNum)) {
         return undefValue;
     }
-    FuncParams* params = new FuncParams();
+    FuncParams* params = new(std::nothrow) FuncParams();
     if (params == nullptr) {
         return undefValue;
     }
