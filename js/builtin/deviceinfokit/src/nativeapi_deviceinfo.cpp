@@ -15,6 +15,7 @@
 
 #include "nativeapi_deviceinfo.h"
 #include <string>
+#include <new>
 #include "global.h"
 #include "js_async_work.h"
 #include "nativeapi_common.h"
