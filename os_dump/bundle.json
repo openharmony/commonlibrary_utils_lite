@@ -14,26 +14,29 @@
     ],
     "component": {
         "name": "os_dump",
-	"subsystem": "utils",
-	"features" : [],
-	"adapted_system_type": [ "standard" ],
-	"rom": "3.7KB",
-	"ram": "~4.75KB",
-	"deps": {
+        "subsystem": "utils",
+        "features": [],
+        "adapted_system_type": [
+            "mini",
+            "small"
+        ],
+        "rom": "3.7KB",
+        "ram": "~4.75KB",
+        "deps": {
             "thrid_party": [
-	        "bounds_checking_function"
-	    ],
-	    "kernel_special": {},
-	    "board_special": {},
-	    "components": [
-		"syspara_lite",
-		"iot_controller"
-	    ]
-	},
-	"build": {
+                "bounds_checking_function"
+            ],
+            "kernel_special": {},
+            "board_special": {},
+            "components": [
+                "syspara_lite",
+                "iot_controller"
+            ]
+        },
+        "build": {
             "sub_component": [],
-	    "inner_kits": [],
-	    "test": []
-	}
+            "inner_kits": [],
+            "test": []
+        }
     }
 }
