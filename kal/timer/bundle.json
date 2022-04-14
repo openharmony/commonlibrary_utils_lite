@@ -1,7 +1,7 @@
 {
-    "name": "@openharmony/utils_lite",
+    "name": "@openharmony/kal_timer",
     "version": "3.1.0",
-    "description": "Basic macro and type definitions",
+    "description": "",
     "publishAs": "code-segment",
     "scripts": {
         "install": "DEST_PATH=${DEP_BUNDLE_BASE}/utils/native/lite && mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
@@ -10,19 +10,26 @@
     "repository": "",
     "license": "Apache License 2.0",
     "dirs": [
-        "utils/native/lite/include"
+        "utils/native/lite/kal/timer"
     ],
     "component": {
-        "name": "utils_lite",
+        "name": "kal_timer",
         "subsystem": "utils",
         "features": [],
         "adapted_system_type": [
             "mini",
             "small"
         ],
-        "rom": "0KB",
-        "ram": "0KB",
-        "deps": {},
+        "rom": "15KB",
+        "ram": "",
+        "deps": {
+            "thrid_party": [],
+            "kernel_special": {},
+            "board_special": {},
+            "components": [
+                "utils_lite"
+            ]
+        },
         "build": {
             "sub_component": [],
             "inner_kits": [],
