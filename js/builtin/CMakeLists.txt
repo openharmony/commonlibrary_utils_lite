@@ -19,7 +19,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(JSFWK_INTERFACES_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../foundation/ace/interfaces/innerkits/builtin")
+set(JSFWK_INTERFACES_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../foundation/arkui/interfaces/inner_api/builtin")
 set(PARAM_INTERFACES_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../base/startup/syspara_lite/interfaces/kits")
 set(PARAM_FRAMEWORKS_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../base/startup/syspara_lite/frameworks")
 set(PARAM_HALS_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../base/startup/syspara_lite/hals")
