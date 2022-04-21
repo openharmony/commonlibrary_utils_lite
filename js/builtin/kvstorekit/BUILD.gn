@@ -33,9 +33,9 @@ lite_library("ace_kit_kvstore") {
     "include",
     "../common/include",
     "//third_party/bounds_checking_function/include",
-    "//foundation/ace/ace_engine_lite/interfaces/innerkits/builtin",
-    "//foundation/ace/ace_engine_lite/interfaces/innerkits/builtin/base",
-    "//foundation/ace/ace_engine_lite/interfaces/innerkits/builtin/async",
+    "//foundation/arkui/ace_engine_lite/interfaces/inner_api/builtin",
+    "//foundation/arkui/ace_engine_lite/interfaces/inner_api/builtin/base",
+    "//foundation/arkui/ace_engine_lite/interfaces/inner_api/builtin/async",
     "${aafwk_lite_path}/interfaces/kits/ability_lite",
   ]
   deps = [ "//third_party/bounds_checking_function:libsec_shared" ]
