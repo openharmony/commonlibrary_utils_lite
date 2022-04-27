@@ -26,7 +26,7 @@ lite_library("ace_kit_common") {
   cflags_cc = cflags
   include_dirs = [
     "include",
-    "//foundation/ace/ace_engine_lite/interfaces/innerkits/builtin",
-    "//foundation/ace/ace_engine_lite/interfaces/innerkits/builtin/base",
+    "//foundation/arkui/ace_engine_lite/interfaces/inner_api/builtin",
+    "//foundation/arkui/ace_engine_lite/interfaces/inner_api/builtin/base",
   ]
 }
