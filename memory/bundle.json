@@ -1,17 +1,16 @@
 {
     "name": "@openharmony/memory",
     "version": "3.1.0",
+    "license": "Apache License 2.0",
     "description": "memory",
     "publishAs": "code-segment",
-    "scripts": {
-        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/utils/native/lite && mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    "segment": {
+        "destPath": "utils/native/lite/memory"
     },
+    "dirs": {},
+    "scripts": {},
     "author": {},
     "repository": "",
-    "license": "Apache License 2.0",
-    "dirs": [
-        "utils/native/lite/memory"
-    ],
     "component": {
         "name": "memory",
         "subsystem": "utils",
