@@ -1,17 +1,16 @@
 {
     "name": "@openharmony/os_dump",
     "version": "3.1.0",
+    "license": "Apache License 2.0",
     "description": "Providing commands for dumping system property.",
     "publishAs": "code-segment",
-    "scripts": {
-        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/utils/native/lite && mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    "segment": {
+        "destPath": "utils/native/lite/os_dump"
     },
+    "dirs": {},
+    "scripts": {},
     "author": {},
     "repository": "",
-    "license": "Apache License 2.0",
-    "dirs": [
-        "utils/native/lite/os_dump"
-    ],
     "component": {
         "name": "os_dump",
         "subsystem": "utils",
