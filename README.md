@@ -159,5 +159,4 @@ utils/native/lite/              # Root directory
 
 [Utils](https://gitee.com/openharmony/docs/blob/master/en/readme/utils.md)
 
-utils\_native\_lite
-
+[**utils\_native\_lite**](https://gitee.com/openharmony/utils_native_lite/blob/master/README.md)

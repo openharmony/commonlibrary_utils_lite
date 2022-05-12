@@ -159,5 +159,4 @@ utils/native/lite/              # 公共基础库根目录
 
 [公共基础](https://gitee.com/openharmony/docs/blob/master/zh-cn/readme/%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80.md)
 
-utils\_native\_lite
-
+[**utils\_native\_lite**](https://gitee.com/openharmony/utils_native_lite/blob/master/README_zh.md)
