@@ -30,7 +30,7 @@
             ]
         },
         "build": {
-            "sub_component": [],
+            "sub_component": [ "//utils/native/lite/timer_task:ace_kit_timer" ],
             "inner_kits": [],
             "test": []
         }

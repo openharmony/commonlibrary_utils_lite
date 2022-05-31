@@ -30,7 +30,7 @@
             ]
         },
         "build": {
-            "sub_component": [],
+            "sub_component": [ "//utils/native/lite/os_dump:utils_os_dump" ],
             "inner_kits": [],
             "test": []
         }
