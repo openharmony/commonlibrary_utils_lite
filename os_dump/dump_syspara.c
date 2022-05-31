@@ -24,7 +24,7 @@
 
 #define API_VERSION_LEN 10
 
-static const char* GetSdkApiLevel()
+static const char* GetSdkApiLevel(void)
 {
     static char sdkApiVersion[API_VERSION_LEN] = {0};
     int sdkApi = GetSdkApiVersion();
@@ -32,7 +32,7 @@ static const char* GetSdkApiLevel()
     return (const char*)sdkApiVersion;
 }
 
-static const char* GetFirstApiLevel()
+static const char* GetFirstApiLevel(void)
 {
     static char firstApiVersion[API_VERSION_LEN] = {0};
     int firstApi = GetFirstApiVersion();
@@ -66,7 +66,7 @@ static const SysParaInfoItem SYSPARA_LIST[] = {
     {"BuildRootHash", GetBuildRootHash},
 };
 
-int QuerySysparaCmd()
+int QuerySysparaCmd(void)
 {
     int index = 0;
     int dumpInfoItemNum = (sizeof(SYSPARA_LIST) / sizeof(SysParaInfoItem));
