@@ -32,7 +32,7 @@
             ]
         },
         "build": {
-            "sub_component": [],
+            "sub_component": [ "//utils/native/lite/file:file" ],
             "inner_kits": [],
             "test": []
         }
