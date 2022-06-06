@@ -38,7 +38,7 @@
             ]
         },
         "build": {
-            "sub_component": [],
+            "sub_component": [ "//utils/native/lite/js/builtin:ace_utils_kits" ],
             "inner_kits": [],
             "test": []
         }
