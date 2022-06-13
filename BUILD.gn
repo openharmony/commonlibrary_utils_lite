@@ -16,7 +16,7 @@ import("//build/lite/ndk/ndk.gni")
 group("utils") {
   deps = [
     "os_dump:utils_os_dump",
-    "//foundation/distributeddatamgr/appdatamgr/frameworks/native/kv_store:kv_store",
+    "//foundation/distributeddatamgr/appdatamgr/kv_store/frameworks/native/kv_store:kv_store",
   ]
 
   if (ohos_kernel_type == "liteos_m") {
@@ -28,7 +28,7 @@ ndk_lib("native_api") {
   if (ohos_kernel_type != "liteos_m") {
     lib_extension = ".so"
   }
-  deps = [ "//foundation/distributeddatamgr/appdatamgr/frameworks/native/kv_store/src:utils_kv_store" ]
+  deps = [ "//foundation/distributeddatamgr/appdatamgr/kv_store/frameworks/native/kv_store/src:utils_kv_store" ]
   head_files = [
     "//utils/native/lite/include/kv_store.h",
     "//utils/native/lite/include/utils_config.h",
