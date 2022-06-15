@@ -29,7 +29,7 @@
             "board_special": {},
             "components": [
                 "utils_lite",
-                "aafwk_lite",
+                "ability_lite",
                 "syspara_lite",
                 "graphic_utils",
                 "resource_management_lite",
