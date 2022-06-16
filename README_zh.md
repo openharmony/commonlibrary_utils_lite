@@ -84,7 +84,6 @@ utils/native/lite/              # 公共基础库根目录
 │   └── src	                    # KV存储源文件
 ├── memory
 │   └── include                 # 内存池管理接口
-├── os_dump                     # Dump系统属性
 └── timer_task                  # Timer实现
 ```
 
@@ -139,20 +138,6 @@ utils/native/lite/              # 公共基础库根目录
     ret = UtilsFileDelete(fileName);
     ```
 
-
--   **dump系统属性**
-
-    LiteOS-M内核：在串口执行如下命令，即可打印当前系统参数
-
-    ```
-    AT+SYSPARA
-    ```
-
-    LiteOS-A内核：在bin路径下执行os\_dump，即可打印当前系统参数
-
-    ```
-    ./bin/os_dump syspara
-    ```
 
 
 ## 涉及仓<a name="section4571352889"></a>
