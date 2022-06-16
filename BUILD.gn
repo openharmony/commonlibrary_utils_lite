@@ -14,10 +14,7 @@
 import("//build/lite/ndk/ndk.gni")
 
 group("utils") {
-  deps = [
-    "os_dump:utils_os_dump",
-    "//foundation/distributeddatamgr/appdatamgr/kv_store/frameworks/native/kv_store:kv_store",
-  ]
+  deps = [ "//foundation/distributeddatamgr/appdatamgr/kv_store/frameworks/native/kv_store:kv_store" ]
 
   if (ohos_kernel_type == "liteos_m") {
     deps += [ "file:file" ]

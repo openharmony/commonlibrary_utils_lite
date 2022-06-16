@@ -84,7 +84,6 @@ utils/native/lite/              # Root directory
 │   └── src	                    # KV store source file
 ├── memory
 │   └── include                 # Memory pool management APIs
-├── os_dump                     # System attribute dumping
 └── timer_task                  # Timer implementation
 ```
 
@@ -139,20 +138,6 @@ utils/native/lite/              # Root directory
     ret = UtilsFileDelete(fileName);
     ```
 
-
--   **System attribute dumping**
-
-    LiteOS Cortex-M kernel: Run the following command over the serial port to dump the current system parameters:
-
-    ```
-    AT+SYSPARA
-    ```
-
-    LiteOS Cortex-A kernel: Run the  **os\_dump**  command in the  **bin**  directory to dump the current system parameters:
-
-    ```
-    ./bin/os_dump syspara
-    ```
 
 
 ## Repositories Involved<a name="section4571352889"></a>
