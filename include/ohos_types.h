@@ -44,7 +44,10 @@ typedef int                     boolean;
 
 typedef void                    *pHandle;
 
-typedef unsigned int BOOL;
+#ifndef DEFINED_BOOL
+typedef unsigned int            BOOL;
+#define DEFINED_BOOL
+#endif
 
 #ifndef TRUE
 #define TRUE             1L
