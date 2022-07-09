@@ -130,12 +130,12 @@ bool NativeapiDeviceInfo::GetProductInfo(JSIValue result)
     }
 
     Screen &screen = Screen::GetInstance();
-    JSI::SetNumberProperty(result, "windowWidth", (double)screen.GetWidth());
-    JSI::SetNumberProperty(result, "windowHeight", (double)screen.GetHeight());
+    JSI::SetNumberProperty(result, "windowWidth", static_cast<double>(screen.GetWidth()));
+    JSI::SetNumberProperty(result, "windowHeight", static_cast<double>(screen.GetHeight()));
     // set default value
     const uint8_t defaultScreenDensity = 195;
     const char * const defaultScreenShape = "rect";
-    JSI::SetNumberProperty(result, "screenDensity", (double)defaultScreenDensity);
+    JSI::SetNumberProperty(result, "screenDensity", static_cast<double>(defaultScreenDensity));
     JSI::SetStringProperty(result, "screenShape", defaultScreenShape);
     return isSuccess;
 }
