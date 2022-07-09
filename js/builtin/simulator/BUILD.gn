@@ -23,8 +23,6 @@ ohos_static_library("ace_kit_common_simulator") {
     "//foundation/arkui/ace_engine_lite/interfaces/inner_api/builtin/base",
   ]
   sources = [ "//utils/native/lite/js/builtin/common/src/nativeapi_common.cpp" ]
-  cflags = [ "-Wall" ]
-  cflags_cc = cflags
 }
 
 ohos_static_library("ace_kit_deviceinfo_simulator") {
@@ -38,8 +36,6 @@ ohos_static_library("ace_kit_deviceinfo_simulator") {
   sources = [
     "//utils/native/lite/js/builtin/deviceinfokit/src/nativeapi_deviceinfo.cpp",
   ]
-  cflags = [ "-Wall" ]
-  cflags_cc = cflags
   deps = [
     "//foundation/arkui/ace_engine_lite/frameworks/targets/simulator:ace_lite",
     "//foundation/graphic/ui/huawei_proprietary/tools/ide:graphic_lite",

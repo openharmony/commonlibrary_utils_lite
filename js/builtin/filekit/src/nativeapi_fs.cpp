@@ -352,7 +352,7 @@ void ExecuteReadTextFile(void* data)
     double position = JSI::GetNumberProperty(args, FILE_POSITION);
     double length = JSI::GetNumberProperty(args, FILE_LENGTH);
     JSIValue result = JSI::CreateObject();
-    int ret = ReadTextInner(src, position, length, result);
+    int ret = ReadTextInner(src, static_cast<int>(position), static_cast<int>(length), result);
     JSI::ReleaseString(src);
     if (ret == NATIVE_SUCCESS) {
         NativeapiCommon::SuccessCallBack(thisVal, args, result);

@@ -20,8 +20,6 @@ lite_library("ace_kit_timer") {
     target_type = "shared_library"
   }
   sources = [ "src/nativeapi_timer_task.c" ]
-  cflags = [ "-Wall" ]
-  cflags_cc = cflags
 
   include_dirs = [
     "include",

@@ -20,8 +20,6 @@ lite_library("kal_timer") {
     target_type = "shared_library"
   }
   sources = [ "src/kal.c" ]
-  cflags = [ "-Wall" ]
-  cflags_cc = cflags
 
   include_dirs = [
     "include",
