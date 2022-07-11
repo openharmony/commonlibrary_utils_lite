@@ -22,8 +22,6 @@ lite_library("ace_kit_common") {
     target_type = "shared_library"
   }
   sources = [ "src/nativeapi_common.cpp" ]
-  cflags = [ "-Wall" ]
-  cflags_cc = cflags
   include_dirs = [
     "include",
     "//foundation/arkui/ace_engine_lite/interfaces/inner_api/builtin",

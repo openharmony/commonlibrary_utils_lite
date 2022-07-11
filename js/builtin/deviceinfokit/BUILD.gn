@@ -22,8 +22,6 @@ lite_library("ace_kit_deviceinfo") {
     target_type = "shared_library"
   }
   sources = [ "src/nativeapi_deviceinfo.cpp" ]
-  cflags = [ "-Wall" ]
-  cflags_cc = cflags
 
   include_dirs = [
     "include",

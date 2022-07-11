@@ -26,8 +26,6 @@ lite_library("ace_kit_file") {
     "src/nativeapi_fs.cpp",
     "src/nativeapi_fs_impl.c",
   ]
-  cflags = [ "-Wall" ]
-  cflags_cc = cflags
 
   include_dirs = [
     "include",
