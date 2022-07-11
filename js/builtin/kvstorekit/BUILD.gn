@@ -26,8 +26,6 @@ lite_library("ace_kit_kvstore") {
     "src/nativeapi_kv.cpp",
     "src/nativeapi_kv_impl.c",
   ]
-  cflags = [ "-Wall" ]
-  cflags_cc = cflags
 
   include_dirs = [
     "include",

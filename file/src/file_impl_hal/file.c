@@ -73,11 +73,12 @@ int UtilsFileCopy(const char* src, const char* dest)
         return fpDest;
     }
     bool copyFailed = true;
+    int nLen;
     char* dataBuf = (char *)malloc(BUFFER_SIZE);
     if (dataBuf == NULL) {
         goto MALLOC_ERROR;
     }
-    int nLen = UtilsFileRead(fpSrc, dataBuf, BUFFER_SIZE);
+    nLen = UtilsFileRead(fpSrc, dataBuf, BUFFER_SIZE);
     while (nLen > 0) {
         if (UtilsFileWrite(fpDest, dataBuf, nLen) != nLen) {
             goto EXIT;
