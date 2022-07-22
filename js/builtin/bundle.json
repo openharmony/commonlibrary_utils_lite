@@ -5,7 +5,7 @@
     "description": "ace related kits",
     "publishAs": "code-segment",
     "segment": {
-        "destPath": "utils/native/lite/js/builtin"
+        "destPath": "commonlibrary/utils_lite/js/builtin"
     },
     "dirs": {},
     "scripts": {},
@@ -13,7 +13,7 @@
     "repository": "",
     "component": {
         "name": "js_builtin",
-        "subsystem": "utils",
+        "subsystem": "commonlibrary",
         "features": [],
         "adapted_system_type": [
             "mini",
@@ -38,7 +38,7 @@
             ]
         },
         "build": {
-            "sub_component": [ "//utils/native/lite/js/builtin:ace_utils_kits" ],
+            "sub_component": [ "//commonlibrary/utils_lite/js/builtin:ace_utils_kits" ],
             "inner_kits": [],
             "test": []
         }

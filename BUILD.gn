@@ -27,11 +27,11 @@ ndk_lib("native_api") {
   }
   deps = [ "//foundation/distributeddatamgr/appdatamgr/kv_store/interfaces/inner_api/kv_store:utils_kv_store" ]
   head_files = [
-    "//utils/native/lite/include/kv_store.h",
-    "//utils/native/lite/include/utils_config.h",
+    "//commonlibrary/utils_lite/include/kv_store.h",
+    "//commonlibrary/utils_lite/include/utils_config.h",
   ]
   if (ohos_kernel_type == "liteos_m") {
     deps += [ "file:native_file" ]
-    head_files += [ "//utils/native/lite/include/utils_file.h" ]
+    head_files += [ "//commonlibrary/utils_lite/include/utils_file.h" ]
   }
 }

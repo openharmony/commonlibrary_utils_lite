@@ -21,6 +21,6 @@ lite_component("ace_utils_kits") {
     "deviceinfokit:ace_kit_deviceinfo",
     "filekit:ace_kit_file",
     "kvstorekit:ace_kit_kvstore",
-    "//utils/native/lite/timer_task:ace_kit_timer",
+    "//commonlibrary/utils_lite/timer_task:ace_kit_timer",
   ]
 }

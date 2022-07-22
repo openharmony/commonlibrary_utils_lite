@@ -66,7 +66,7 @@
 ## 目录<a name="section1464106163817"></a>
 
 ```
-utils/native/lite/              # 公共基础库根目录
+commonlibrary/utils_lite/              # 公共基础库根目录
 ├── file                        # 文件接口实现
 ├── hals                        # HAL目录
 │   └── file                    # 文件操作硬件抽象层头文件

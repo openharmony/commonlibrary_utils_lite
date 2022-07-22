@@ -5,7 +5,7 @@
     "description": "ace timer kits",
     "publishAs": "code-segment",
     "segment": {
-        "destPath": "utils/native/lite/timer_task"
+        "destPath": "commonlibrary/utils_lite/timer_task"
     },
     "dirs": {},
     "scripts": {},
@@ -13,7 +13,7 @@
     "repository": "",
     "component": {
         "name": "timer_task",
-        "subsystem": "utils",
+        "subsystem": "commonlibrary",
         "features": [],
         "adapted_system_type": [
             "mini",
@@ -30,7 +30,7 @@
             ]
         },
         "build": {
-            "sub_component": [ "//utils/native/lite/timer_task:ace_kit_timer" ],
+            "sub_component": [ "//commonlibrary/utils_lite/timer_task:ace_kit_timer" ],
             "inner_kits": [],
             "test": []
         }

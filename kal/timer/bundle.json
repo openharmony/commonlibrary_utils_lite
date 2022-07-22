@@ -5,7 +5,7 @@
     "description": "",
     "publishAs": "code-segment",
     "segment": {
-        "destPath": "utils/native/lite/kal/timer"
+        "destPath": "commonlibrary/utils_lite/kal/timer"
     },
     "dirs": {},
     "scripts": {},
@@ -13,7 +13,7 @@
     "repository": "",
     "component": {
         "name": "kal_timer",
-        "subsystem": "utils",
+        "subsystem": "commonlibrary",
         "features": [],
         "adapted_system_type": [
             "mini",
@@ -30,7 +30,7 @@
             ]
         },
         "build": {
-            "sub_component": [ "//utils/native/lite/kal/timer:kal_timer" ],
+            "sub_component": [ "//commonlibrary/utils_lite/kal/timer:kal_timer" ],
             "inner_kits": [],
             "test": []
         }
