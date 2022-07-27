@@ -16,8 +16,8 @@ import("//build/lite/config/component/lite_component.gni")
 static_library("native_file") {
   sources = [ "src/file_impl_hal/file.c" ]
   include_dirs = [
-    "//utils/native/lite/include",
-    "//utils/native/lite/hals/file",
+    "//commonlibrary/utils_lite/include",
+    "//commonlibrary/utils_lite/hals/file",
   ]
   deps = [ "$ohos_board_adapter_dir/hals/utils/file:hal_file_static" ]
 }

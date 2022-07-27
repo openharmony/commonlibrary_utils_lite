@@ -66,7 +66,7 @@ The Utils library provides the following capabilities on different platforms:
 ## Directory Structure<a name="section1464106163817"></a>
 
 ```
-utils/native/lite/              # Root directory
+commonlibrary/utils_lite/              # Root directory
 ├── file                        # Implementation of the file system APIs
 ├── hals                        # HAL directory
 │   └── file                    # Header files of the hardware abstraction layer for file operations
