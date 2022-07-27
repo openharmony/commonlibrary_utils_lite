@@ -23,11 +23,11 @@ lite_library("ace_kit_timer") {
 
   include_dirs = [
     "include",
-    "//utils/native/lite/include",
-    "//utils/native/lite/kal/timer/include",
+    "//commonlibrary/utils_lite/include",
+    "//commonlibrary/utils_lite/kal/timer/include",
   ]
   if (ohos_kernel_type == "liteos_a") {
     include_dirs += [ "//third_party/musl/include" ]
   }
-  public_deps = [ "//utils/native/lite/kal/timer:kal_timer" ]
+  public_deps = [ "//commonlibrary/utils_lite/kal/timer:kal_timer" ]
 }

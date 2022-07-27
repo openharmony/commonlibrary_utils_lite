@@ -23,6 +23,6 @@ lite_library("kal_timer") {
 
   include_dirs = [
     "include",
-    "//utils/native/lite/include",
+    "//commonlibrary/utils_lite/include",
   ]
 }
