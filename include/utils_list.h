@@ -377,7 +377,9 @@ static inline void UtilsListHeadInsertList(UTILS_DL_LIST *oldList, UTILS_DL_LIST
  * <ul><li>utils_list.h: the header file that contains the API declaration.</li></ul>
  * @see
  */
+#ifndef OFFSET_OF_FIELD
 #define OFFSET_OF_FIELD(type, field) ((unsigned int)&((type *)0)->field)
+#endif
 
 /*
  * @ingroup utils_list
