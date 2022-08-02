@@ -44,7 +44,7 @@ extern "C"{
 #endif /* End of #ifdef __cplusplus */
 
 /**
- * @brief memory pool enum defination.
+ * @brief memory pool enum definition.
  */
 typedef enum {
     MEM_TYPE_BEGIN = 100,
@@ -59,7 +59,7 @@ typedef enum {
     MEM_TYPE_HICHAIN,      /* security memory pool */
     MEM_TYPE_SOFTBUS_LSRAM,  /* softbus low speed memory pool */
 
-    MEM_TYPE_MAX           /* maximum defination of memory ,add a new memory pool before it */
+    MEM_TYPE_MAX           /* maximum definition of memory, add a new memory pool before it */
 } MemType;
 
 /**
