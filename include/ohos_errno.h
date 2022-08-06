@@ -49,7 +49,7 @@ enum OHOSLiteErrorCode {
     EC_NOKEY = -23, /* Required key not available */
     EC_NOHANDLER = -24, /* No handler to execute */
     EC_FLOWCTRL = -25, /* Flow control */
-    EC_NOINIT = -26, /* device hasn't been initializeed */
+    EC_NOINIT = -26, /* device hasn't been initialized */
     EC_NORESOURCE = -27, /* resource error */
     EC_LLERRTOP = -127, /* Low level function error code max value */
     EC_HLERRBASE = -128 /* High level function error code baseline */
