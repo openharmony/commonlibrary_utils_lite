@@ -30,7 +30,7 @@
             "components": [
                 "utils_lite",
                 "ability_lite",
-                "syspara_lite",
+                "init",
                 "graphic_utils",
                 "resource_management_lite",
                 "ui",

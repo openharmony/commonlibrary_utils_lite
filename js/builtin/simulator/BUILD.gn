@@ -31,7 +31,7 @@ ohos_static_library("ace_kit_deviceinfo_simulator") {
   include_dirs = [
     "//commonlibrary/utils_lite/js/builtin/deviceinfokit/include",
     "//commonlibrary/utils_lite/js/builtin/common/include",
-    "//base/startup/syspara_lite/interfaces/kits",
+    "//base/startup/init/interfaces/innerkits/include/syspara",
     "//foundation/arkui/ace_engine_lite/interfaces/inner_api/builtin",
     "//base/global/resource_management_lite/interfaces/inner_api/include",
   ]
