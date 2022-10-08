@@ -1,4 +1,4 @@
-# 项目介绍<a name="ZH-CN_TOPIC_0000001121139825"></a>
+# 轻量级公共基础库<a name="ZH-CN_TOPIC_0000001121139825"></a>
 
 -   [简介](#section62661387114)
 -   [目录](#section1464106163817)
@@ -7,14 +7,14 @@
 
 ## 简介<a name="section62661387114"></a>
 
-公共基础库存放OpenHarmony通用的基础组件。这些基础组件可被OpenHarmony各业务子系统及上层应用所使用。
+轻量级公共基础库存放OpenHarmony通用的基础组件。这些基础组件可被OpenHarmony各业务子系统及上层应用所使用。
 
-公共基础库在不同平台上提供的能力：
+轻量级公共基础库在不同平台上提供的能力：
 
--   LiteOS-M内核\(Hi3861平台\)：KV\(key value\)存储、文件操作、定时器、Dump系统属性。
--   LiteOS-A内核\(Hi3516、Hi3518平台\)：KV\(key value\)存储、定时器、JS API\(设备查询，数据存储\)、Dump系统属性。
+-   LiteOS-M内核\(Hi3861平台\)：文件操作、定时器。
+-   LiteOS-A内核\(Hi3516、Hi3518平台\)：定时器、JS API\(设备查询，数据存储\)。
 
-**表 1**  公共基础库功能
+**表 1**  轻量级公共基础库功能
 
 <a name="zh-cn_topic_0000001052623010_table206292206282"></a>
 <table><thead align="left"><tr id="zh-cn_topic_0000001052623010_row8629020112819"><th class="cellrowborder" valign="top" width="21.22%" id="mcps1.2.4.1.1"><p id="zh-cn_topic_0000001052623010_p66291220192816"><a name="zh-cn_topic_0000001052623010_p66291220192816"></a><a name="zh-cn_topic_0000001052623010_p66291220192816"></a>模块</p>
@@ -25,13 +25,7 @@
 </th>
 </tr>
 </thead>
-<tbody><tr id="zh-cn_topic_0000001052623010_row1162992082812"><td class="cellrowborder" valign="top" width="21.22%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001052623010_p136291920192814"><a name="zh-cn_topic_0000001052623010_p136291920192814"></a><a name="zh-cn_topic_0000001052623010_p136291920192814"></a>KV存储</p>
-</td>
-<td class="cellrowborder" valign="top" width="24.77%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001052623010_p5629112019284"><a name="zh-cn_topic_0000001052623010_p5629112019284"></a><a name="zh-cn_topic_0000001052623010_p5629112019284"></a>LiteOS-M内核、LiteOS-A内核</p>
-</td>
-<td class="cellrowborder" valign="top" width="54.010000000000005%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0000001052623010_p3630112072811"><a name="zh-cn_topic_0000001052623010_p3630112072811"></a><a name="zh-cn_topic_0000001052623010_p3630112072811"></a>为应用程序提供KV存储机制。</p>
-</td>
-</tr>
+<tbody>
 <tr id="zh-cn_topic_0000001052623010_row116301920152816"><td class="cellrowborder" valign="top" width="21.22%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001052623010_p96300207286"><a name="zh-cn_topic_0000001052623010_p96300207286"></a><a name="zh-cn_topic_0000001052623010_p96300207286"></a>文件操作</p>
 </td>
 <td class="cellrowborder" valign="top" width="24.77%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001052623010_p1463032012281"><a name="zh-cn_topic_0000001052623010_p1463032012281"></a><a name="zh-cn_topic_0000001052623010_p1463032012281"></a>LiteOS-M内核</p>
@@ -53,20 +47,13 @@
 <td class="cellrowborder" valign="top" width="54.010000000000005%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0000001052623010_p1550005422814"><a name="zh-cn_topic_0000001052623010_p1550005422814"></a><a name="zh-cn_topic_0000001052623010_p1550005422814"></a>提供获取设备信息，数据存储的JS API。</p>
 </td>
 </tr>
-<tr id="zh-cn_topic_0000001052623010_row5553145162815"><td class="cellrowborder" valign="top" width="21.22%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0000001052623010_p106300200288"><a name="zh-cn_topic_0000001052623010_p106300200288"></a><a name="zh-cn_topic_0000001052623010_p106300200288"></a>Dump系统属性</p>
-</td>
-<td class="cellrowborder" valign="top" width="24.77%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0000001052623010_p16300204280"><a name="zh-cn_topic_0000001052623010_p16300204280"></a><a name="zh-cn_topic_0000001052623010_p16300204280"></a>LiteOS-M内核、LiteOS-A内核</p>
-</td>
-<td class="cellrowborder" valign="top" width="54.010000000000005%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0000001052623010_p1563018208286"><a name="zh-cn_topic_0000001052623010_p1563018208286"></a><a name="zh-cn_topic_0000001052623010_p1563018208286"></a>提供Dump系统属性的命令行工具。</p>
-</td>
-</tr>
 </tbody>
 </table>
 
 ## 目录<a name="section1464106163817"></a>
 
 ```
-commonlibrary/utils_lite/              # 公共基础库根目录
+commonlibrary/utils_lite/              # 轻量级公共基础库根目录
 ├── file                        # 文件接口实现
 ├── hals                        # HAL目录
 │   └── file                    # 文件操作硬件抽象层头文件
@@ -79,31 +66,12 @@ commonlibrary/utils_lite/              # 公共基础库根目录
 │       └── kvstorekit          # KV存储Kit
 ├── kal                         # KAL目录
 │   └── timer                   # Timer的KAL实现
-├── kv_store	                # KV存储实现
-│   ├── innerkits               # KV存储内部接口
-│   └── src	                    # KV存储源文件
 ├── memory
 │   └── include                 # 内存池管理接口
 └── timer_task                  # Timer实现
 ```
 
 ## 使用<a name="section25021123178"></a>
-
--   **KV存储**
-
-    ```
-    // 存储/更新key对应数据项
-    const char key1[] = "key_sample";
-    const char defValue[] = "test case of key value store.";
-    int ret = UtilsSetValue(key1, defValue);
-    
-    // 根据key获取对应数据项
-    char value1[32] = {0};
-    ret = UtilsGetValue(key1, value1, 32);
-    
-    // 删除key对应数据项
-    UtilsDeleteValue(key1);
-    ```
 
 -   **文件操作**
 
@@ -144,4 +112,4 @@ commonlibrary/utils_lite/              # 公共基础库根目录
 
 [公共基础](https://gitee.com/openharmony/docs/blob/master/zh-cn/readme/%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E5%BA%93.md)
 
-[**utils\_native\_lite**](https://gitee.com/openharmony/utils_native_lite/blob/master/README_zh.md)
+[**commonlibrary\_utils\_lite**](https://gitee.com/openharmony/commonlibrary_utils_lite)
