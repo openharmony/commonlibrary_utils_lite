@@ -1,4 +1,4 @@
-# Utils<a name="EN-US_TOPIC_0000001121139825"></a>
+# commonlibrary/utils_lite<a name="EN-US_TOPIC_0000001121139825"></a>
 
 -   [Overview](#section62661387114)
 -   [Directory Structure](#section1464106163817)
@@ -7,14 +7,14 @@
 
 ## Overview<a name="section62661387114"></a>
 
-The Utils repository stores basic components of OpenHarmony. These basic components are used by OpenHarmony subsystems and upper-layer applications.
+The utils_lite repository stores basic components of OpenHarmony. These basic components are used by OpenHarmony subsystems and upper-layer applications.
 
-The Utils library provides the following capabilities on different platforms:
+The utils_lite library provides the following capabilities on different platforms:
 
--   LiteOS Cortex-M \(Hi3861 platform\): key value \(KV\) store, file operations, timer, and system attribute dumping
--   LiteOS Cortex-A \(Hi3516 or Hi3518 platform\): KV store, timer, JavaScript APIs for device query and data storage, and system attribute dumping
+-   LiteOS Cortex-M \(Hi3861 platform\): file operations and timer
+-   LiteOS Cortex-A \(Hi3516 or Hi3518 platform\): timer and JavaScript APIs for device query and data storage
 
-**Table  1**  Utils capabilities
+**Table  1**  Utils_lite capabilities
 
 <a name="en-us_topic_0000001052623010_table206292206282"></a>
 <table><thead align="left"><tr id="en-us_topic_0000001052623010_row8629020112819"><th class="cellrowborder" valign="top" width="21.22%" id="mcps1.2.4.1.1"><p id="en-us_topic_0000001052623010_p66291220192816"><a name="en-us_topic_0000001052623010_p66291220192816"></a><a name="en-us_topic_0000001052623010_p66291220192816"></a>Module</p>
@@ -25,13 +25,7 @@ The Utils library provides the following capabilities on different platforms:
 </th>
 </tr>
 </thead>
-<tbody><tr id="en-us_topic_0000001052623010_row1162992082812"><td class="cellrowborder" valign="top" width="21.22%" headers="mcps1.2.4.1.1 "><p id="en-us_topic_0000001052623010_p136291920192814"><a name="en-us_topic_0000001052623010_p136291920192814"></a><a name="en-us_topic_0000001052623010_p136291920192814"></a>KV store</p>
-</td>
-<td class="cellrowborder" valign="top" width="24.77%" headers="mcps1.2.4.1.2 "><p id="en-us_topic_0000001052623010_p5629112019284"><a name="en-us_topic_0000001052623010_p5629112019284"></a><a name="en-us_topic_0000001052623010_p5629112019284"></a>LiteOS Cortex-M and LiteOS Cortex-A</p>
-</td>
-<td class="cellrowborder" valign="top" width="54.010000000000005%" headers="mcps1.2.4.1.3 "><p id="en-us_topic_0000001052623010_p3630112072811"><a name="en-us_topic_0000001052623010_p3630112072811"></a><a name="en-us_topic_0000001052623010_p3630112072811"></a>Provides KV storage for applications.</p>
-</td>
-</tr>
+<tbody>
 <tr id="en-us_topic_0000001052623010_row116301920152816"><td class="cellrowborder" valign="top" width="21.22%" headers="mcps1.2.4.1.1 "><p id="en-us_topic_0000001052623010_p96300207286"><a name="en-us_topic_0000001052623010_p96300207286"></a><a name="en-us_topic_0000001052623010_p96300207286"></a>File operation</p>
 </td>
 <td class="cellrowborder" valign="top" width="24.77%" headers="mcps1.2.4.1.2 "><p id="en-us_topic_0000001052623010_p1463032012281"><a name="en-us_topic_0000001052623010_p1463032012281"></a><a name="en-us_topic_0000001052623010_p1463032012281"></a>LiteOS Cortex-M</p>
@@ -53,13 +47,6 @@ The Utils library provides the following capabilities on different platforms:
 <td class="cellrowborder" valign="top" width="54.010000000000005%" headers="mcps1.2.4.1.3 "><p id="en-us_topic_0000001052623010_p1550005422814"><a name="en-us_topic_0000001052623010_p1550005422814"></a><a name="en-us_topic_0000001052623010_p1550005422814"></a>Provides JavaScript APIs for obtaining device information and storing data.</p>
 </td>
 </tr>
-<tr id="en-us_topic_0000001052623010_row5553145162815"><td class="cellrowborder" valign="top" width="21.22%" headers="mcps1.2.4.1.1 "><p id="en-us_topic_0000001052623010_p106300200288"><a name="en-us_topic_0000001052623010_p106300200288"></a><a name="en-us_topic_0000001052623010_p106300200288"></a>System attribute dumping</p>
-</td>
-<td class="cellrowborder" valign="top" width="24.77%" headers="mcps1.2.4.1.2 "><p id="en-us_topic_0000001052623010_p16300204280"><a name="en-us_topic_0000001052623010_p16300204280"></a><a name="en-us_topic_0000001052623010_p16300204280"></a>LiteOS Cortex-M and LiteOS Cortex-A</p>
-</td>
-<td class="cellrowborder" valign="top" width="54.010000000000005%" headers="mcps1.2.4.1.3 "><p id="en-us_topic_0000001052623010_p1563018208286"><a name="en-us_topic_0000001052623010_p1563018208286"></a><a name="en-us_topic_0000001052623010_p1563018208286"></a>Provides the command line tool for dumping system attributes.</p>
-</td>
-</tr>
 </tbody>
 </table>
 
@@ -79,31 +66,12 @@ commonlibrary/utils_lite/              # Root directory
 │       └── kvstorekit          # KV store kit
 ├── kal                         # KAL directory
 │   └── timer                   # KAL implementation of the timer
-├── kv_store	                # KV store implementation
-│   ├── innerkits               # Internal KV store APIs
-│   └── src	                    # KV store source file
 ├── memory
 │   └── include                 # Memory pool management APIs
 └── timer_task                  # Timer implementation
 ```
 
 ## Usage<a name="section25021123178"></a>
-
--   **KV store**
-
-    ```
-    // Store or update the value of a key.
-    const char key1[] = "key_sample";
-    const char defValue[] = "test case of key value store.";
-    int ret = UtilsSetValue(key1, defValue);
-    
-    // Obtain the value of the key.
-    char value1[32] = {0};
-    ret = UtilsGetValue(key1, value1, 32);
-    
-    // Delete the value of the key.
-    UtilsDeleteValue(key1);
-    ```
 
 -   **File operation**
 
@@ -142,6 +110,6 @@ commonlibrary/utils_lite/              # Root directory
 
 ## Repositories Involved<a name="section4571352889"></a>
 
-[Utils](https://gitee.com/openharmony/docs/blob/master/en/readme/utils.md)
+[commonlibrary](https://gitee.com/openharmony/docs/blob/master/en/readme/commonlibrary.md)
 
-[**utils\_native\_lite**](https://gitee.com/openharmony/utils_native_lite/blob/master/README.md)
+[**commonlibrary\_utils\_lite**](https://gitee.com/openharmony/commonlibrary_utils_lite)
