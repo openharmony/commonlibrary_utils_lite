@@ -58,6 +58,8 @@ typedef enum {
     MEM_TYPE_JERRY_LSRAM,  /* jerry script low speed memory pool */
     MEM_TYPE_HICHAIN,      /* security memory pool */
     MEM_TYPE_SOFTBUS_LSRAM,  /* softbus low speed memory pool */
+    MEM_TYPE_CJSON_LSRAM = 114,
+    MEM_TYPE_APP_VERIFY_LSRAM = 116,
 
     MEM_TYPE_MAX           /* maximum definition of memory, add a new memory pool before it */
 } MemType;
