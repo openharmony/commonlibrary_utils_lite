@@ -17,8 +17,7 @@ ohos_static_library("static_hal_file") {
   sources = [ "hal_file.c" ]
 
   include_dirs = [
-    "//utils/native/lite/include",
-    "//utils/native/lite/hals/file",
+    "//commonlibrary/utils_lite/include",
     "//commonlibrary/utils_lite/hals/file",
   ]
 }
