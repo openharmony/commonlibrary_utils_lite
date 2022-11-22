@@ -19,15 +19,15 @@ static_library("native_file") {
     "//commonlibrary/utils_lite/include",
     "//commonlibrary/utils_lite/hals/file",
   ]
+  deps = [ "//commonlibrary/utils_lite/hals/file:static_hal_file" ]
   BOARD_DRIVER_HAL_FILE_PATH =
       rebase_path("//${ohos_board_adapter_dir}/hals/utils/file")
   cmd = "if [ -f ${BOARD_DRIVER_HAL_FILE_PATH}/BUILD.gn ]; then echo true; else echo false; fi"
   BOARD_DRIVER_HAL_FILE_PATH_EXISTS =
       exec_script("//build/lite/run_shell_cmd.py", [ cmd ], "value")
   if (BOARD_DRIVER_HAL_FILE_PATH_EXISTS) {
-    deps = [ "$ohos_board_adapter_dir/hals/utils/file:hal_file_static" ]
+    deps += [ "$ohos_board_adapter_dir/hals/utils/file:hal_file_static" ]
   }
-  deps += [ "//commonlibrary/utils_lite/hals/file:static_hal_file" ]
 }
 
 lite_component("file") {
