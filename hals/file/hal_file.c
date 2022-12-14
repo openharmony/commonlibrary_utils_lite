@@ -18,33 +18,33 @@
 
 #include "hal_file.h"
 
-__attribute__((weak)) int HalFileOpen(const char *path, int oflag, int mode)
+int HalFileOpen(const char *path, int oflag, int mode)
 {
     (void)mode;
     return open(path, oflag);
 }
 
-__attribute__((weak)) int HalFileClose(int fd)
+int HalFileClose(int fd)
 {
     return close(fd);
 }
 
-__attribute__((weak)) int HalFileRead(int fd, char *buf, unsigned int len)
+int HalFileRead(int fd, char *buf, unsigned int len)
 {
     return read(fd, buf, len);
 }
 
-__attribute__((weak)) int HalFileWrite(int fd, const char *buf, unsigned int len)
+int HalFileWrite(int fd, const char *buf, unsigned int len)
 {
     return write(fd, buf, len);
 }
 
-__attribute__((weak)) int HalFileDelete(const char *path)
+int HalFileDelete(const char *path)
 {
     return unlink(path);
 }
 
-__attribute__((weak)) int HalFileStat(const char *path, unsigned int *fileSize)
+int HalFileStat(const char *path, unsigned int *fileSize)
 {
     struct stat info = { 0 };
     int ret = stat(path, &info);
@@ -55,7 +55,7 @@ __attribute__((weak)) int HalFileStat(const char *path, unsigned int *fileSize)
     }
 }
 
-__attribute__((weak)) int HalFileSeek(int fd, int offset, unsigned int whence)
+int HalFileSeek(int fd, int offset, unsigned int whence)
 {
     return lseek(fd, offset, whence);
 }
