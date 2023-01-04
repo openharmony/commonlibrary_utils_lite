@@ -58,6 +58,7 @@ typedef enum {
     MEM_TYPE_JERRY_LSRAM,  /* jerry script low speed memory pool */
     MEM_TYPE_HICHAIN,      /* security memory pool */
     MEM_TYPE_SOFTBUS_LSRAM,  /* softbus low speed memory pool */
+    MEM_TYPE_I18N_LSRAM, /* global i18n low speed memory pool */
     MEM_TYPE_CJSON_LSRAM = 114,
     MEM_TYPE_APP_VERIFY_LSRAM = 116,
 
