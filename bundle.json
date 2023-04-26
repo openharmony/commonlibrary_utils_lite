@@ -14,16 +14,33 @@
     "component": {
         "name": "utils_lite",
         "subsystem": "commonlibrary",
-        "features": [],
+        "features": [
+            "utils_lite_feature_file",
+            "utils_lite_feature_kal_timer",
+            "utils_lite_feature_timer_task",
+            "utils_lite_feature_js_builtin"
+        ],
         "adapted_system_type": [
             "mini",
             "small"
         ],
-        "rom": "0KB",
-        "ram": "0KB",
-        "deps": {},
+        "deps": {
+            "thrid_party": [
+                "bounds_checking_function"
+            ],
+            "kernel_special": {},
+            "board_special": {},
+            "components": [
+                "ability_lite",
+                "init",
+                "graphic_utils",
+                "resource_management_lite",
+                "ui",
+                "ace_native_engine_lite"
+            ]
+        },
         "build": {
-            "sub_component": [],
+            "sub_component": [ "//commonlibrary/utils_lite:utils_lite" ],
             "inner_kits": [],
             "test": []
         }
