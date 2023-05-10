@@ -33,9 +33,9 @@
             "components": [
                 "ability_lite",
                 "init",
-                "graphic_utils",
+                "graphic_utils_lite",
                 "resource_management_lite",
-                "ui",
+                "ui_lite",
                 "ace_native_engine_lite"
             ]
         },

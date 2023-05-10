@@ -25,7 +25,7 @@ set(PARAM_FRAMEWORKS_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../base/start
 set(PARAM_HALS_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../base/startup/syspara_lite/hals")
 set(SECUREC_INTERFACES_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../third_party/bounds_checking_function/include")
 set(ABILITY_INTERFACES_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../foundation/aafwk/aafwk_lite/interfaces/kits/ability_lite")
-set(UI_INTERFACES_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../foundation/graphic/ui/huawei_proprietary")
+set(UI_INTERFACES_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../foundation/arkui/ui_ext_lite")
 
 # header files
 include_directories(
