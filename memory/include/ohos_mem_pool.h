@@ -56,6 +56,7 @@ typedef enum {
     MEM_TYPE_ACE_LSRAM,    /* ACE low speed memory pool */
     MEM_TYPE_JERRY,        /* jerry script memory pool */
     MEM_TYPE_JERRY_LSRAM,  /* jerry script low speed memory pool */
+    MEM_TYPE_JERRY_HEAP,  /* jerry independent heap memory pool */
     MEM_TYPE_HICHAIN,      /* security memory pool */
     MEM_TYPE_SOFTBUS_LSRAM,  /* softbus low speed memory pool */
     MEM_TYPE_I18N_LSRAM = 111, /* global i18n low speed memory pool */
