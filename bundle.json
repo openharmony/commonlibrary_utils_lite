@@ -29,7 +29,7 @@
         "deps": {
             "thrid_party": [
                 "bounds_checking_function",
-		"musl"
+		        "musl"
             ],
             "kernel_special": {},
             "board_special": {},
