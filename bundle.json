@@ -1,6 +1,6 @@
 {
-    "name": "@openharmony/utils_lite",
-    "version": "3.1.0",
+    "name": "@ohos/utils_lite",
+    "version": "4.0.2",
     "license": "Apache License 2.0",
     "description": "Basic macro and type definitions",
     "publishAs": "code-segment",
@@ -10,7 +10,9 @@
     "dirs": {},
     "scripts": {},
     "author": {},
-    "repository": "",
+    "homePage": "https://gitee.com/openharmony",
+    "repository": "https://gitee.com/openharmony/commonlibrary_utils_lite",
+    "supplier": "Organization: OpenHarmony",
     "component": {
         "name": "utils_lite",
         "subsystem": "commonlibrary",
@@ -26,7 +28,8 @@
         ],
         "deps": {
             "thrid_party": [
-                "bounds_checking_function"
+                "bounds_checking_function",
+		"musl"
             ],
             "kernel_special": {},
             "board_special": {},
