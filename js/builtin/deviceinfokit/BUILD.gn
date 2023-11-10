@@ -21,7 +21,10 @@ lite_library("ace_kit_deviceinfo") {
   } else {
     target_type = "shared_library"
   }
-  sources = [ "src/nativeapi_deviceinfo.cpp" ]
+  sources = [
+    "src/nativeapi_deviceinfo.cpp",
+    "src/nativeapi_ohos_deviceinfo.cpp",
+  ]
 
   include_dirs = [
     "include",
