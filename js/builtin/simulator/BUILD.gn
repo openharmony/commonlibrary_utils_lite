@@ -35,7 +35,10 @@ ohos_static_library("ace_kit_deviceinfo_simulator") {
     "//foundation/arkui/ace_engine_lite/interfaces/inner_api/builtin",
     "//base/global/resource_management_lite/interfaces/inner_api/include",
   ]
-  sources = [ "//commonlibrary/utils_lite/js/builtin/deviceinfokit/src/nativeapi_deviceinfo.cpp" ]
+  sources = [
+    "//commonlibrary/utils_lite/js/builtin/deviceinfokit/src/nativeapi_deviceinfo.cpp",
+    "//commonlibrary/utils_lite/js/builtin/deviceinfokit/src/nativeapi_ohos_deviceinfo.cpp",
+  ]
   deps = [
     "//foundation/arkui/ace_engine_lite/frameworks/targets/simulator:ace_lite",
     "//foundation/arkui/ui_lite/ext/ide:ui_ide",
