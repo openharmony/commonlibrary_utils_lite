@@ -44,7 +44,23 @@
         },
         "build": {
             "sub_component": [ "//commonlibrary/utils_lite:utils_lite" ],
-            "inner_kits": [],
+            "inner_kits": [
+                {
+                    "name": "//commonlibrary/utils_lite:utils_lite"
+                },
+                {
+                    "name": "//commonlibrary/utils_lite/js/builtin/simulator:ace_kit_common_simulator"
+                },
+                {
+                    "name": "//commonlibrary/utils_lite/js/builtin/simulator:ace_kit_deviceinfo_simulator"
+                },
+                {
+                    "name": "//commonlibrary/utils_lite/js/builtin/simulator:ace_kit_file_simulator"
+                },
+                {
+                    "name": "//commonlibrary/utils_lite/js/builtin/simulator:ace_kit_kvstore_simulator"
+                }
+            ],
             "test": []
         }
     }
