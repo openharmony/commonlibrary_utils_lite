@@ -29,7 +29,6 @@ lite_library("ace_kit_deviceinfo") {
   include_dirs = [
     "include",
     "../common/include",
-    "//base/startup/init/interfaces/innerkits/include/syspara",
     "//foundation/arkui/ace_engine_lite/interfaces/inner_api/builtin",
     "//foundation/arkui/ace_engine_lite/interfaces/inner_api/builtin/base",
     "//foundation/arkui/ace_engine_lite/interfaces/inner_api/builtin/async",
@@ -38,5 +37,5 @@ lite_library("ace_kit_deviceinfo") {
     "//foundation/graphic/graphic_utils_lite/interfaces/kits",
     "//base/global/resource_management_lite/interfaces/inner_api/include",
   ]
-  deps = [ "//base/startup/init/interfaces/innerkits:libbegetutil" ]
+  external_deps = [ "init:libbegetutil" ]
 }

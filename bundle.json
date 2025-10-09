@@ -27,10 +27,7 @@
             "small"
         ],
         "deps": {
-            "thrid_party": [
-                "bounds_checking_function",
-                "musl"
-            ],
+            "third_party": [],
             "kernel_special": {},
             "board_special": {},
             "components": [
@@ -39,7 +36,9 @@
                 "graphic_utils_lite",
                 "resource_management_lite",
                 "ui_lite",
-                "ace_engine_lite"
+                "ace_engine_lite",
+                "bounds_checking_function",
+                "musl"
             ]
         },
         "build": {

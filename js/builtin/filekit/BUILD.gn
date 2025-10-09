@@ -30,11 +30,10 @@ lite_library("ace_kit_file") {
   include_dirs = [
     "include",
     "../common/include",
-    "//third_party/bounds_checking_function/include",
     "//foundation/arkui/ace_engine_lite/interfaces/inner_api/builtin",
     "//foundation/arkui/ace_engine_lite/interfaces/inner_api/builtin/base",
     "//foundation/arkui/ace_engine_lite/interfaces/inner_api/builtin/async",
     "${aafwk_lite_path}/interfaces/kits/ability_lite",
   ]
-  deps = [ "//third_party/bounds_checking_function:libsec_shared" ]
+  external_deps = [ "bounds_checking_function:libsec_shared" ]
 }
