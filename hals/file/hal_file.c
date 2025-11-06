@@ -46,6 +46,7 @@ int HalFileDelete(const char *path)
 
 int HalFileStat(const char *path, unsigned int *fileSize)
 {
+    (void)fileSize;
     struct stat info = { 0 };
     int ret = stat(path, &info);
     if (ret < 0) {
