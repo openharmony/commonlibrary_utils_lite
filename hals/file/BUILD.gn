@@ -20,4 +20,6 @@ ohos_static_library("static_hal_file") {
     "//commonlibrary/utils_lite/include",
     "//commonlibrary/utils_lite/hals/file",
   ]
+  subsystem_name = "commonlibrary"
+  part_name = "utils_lite"
 }
