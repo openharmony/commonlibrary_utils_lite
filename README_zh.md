@@ -110,6 +110,6 @@ commonlibrary/utils_lite/              # 轻量级公共基础库根目录
 
 ## 涉及仓<a name="section4571352889"></a>
 
-[公共基础](https://gitee.com/openharmony/docs/blob/master/zh-cn/readme/%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E5%BA%93.md)
+[公共基础](https://gitcode.com/openharmony/docs/blob/master/zh-cn/readme/%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E5%BA%93.md)
 
-[**commonlibrary\_utils\_lite**](https://gitee.com/openharmony/commonlibrary_utils_lite)
+[**commonlibrary\_utils\_lite**](https://gitcode.com/openharmony/commonlibrary_utils_lite)

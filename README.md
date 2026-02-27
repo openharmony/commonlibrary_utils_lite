@@ -110,6 +110,6 @@ commonlibrary/utils_lite/              # Root directory
 
 ## Repositories Involved<a name="section4571352889"></a>
 
-[commonlibrary](https://gitee.com/openharmony/docs/blob/master/en/readme/utils.md)
+[commonlibrary](https://gitcode.com/openharmony/docs/blob/master/en/readme/utils.md)
 
-[**commonlibrary\_utils\_lite**](https://gitee.com/openharmony/commonlibrary_utils_lite)
+[**commonlibrary\_utils\_lite**](https://gitcode.com/openharmony/commonlibrary_utils_lite)
