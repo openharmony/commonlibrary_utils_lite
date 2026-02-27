@@ -10,8 +10,8 @@
     "dirs": {},
     "scripts": {},
     "author": {},
-    "homePage": "https://gitee.com/openharmony",
-    "repository": "https://gitee.com/openharmony/commonlibrary_utils_lite",
+    "homePage": "https://gitcode.com/openharmony",
+    "repository": "https://gitcode.com/openharmony/commonlibrary_utils_lite",
     "supplier": "Organization: OpenHarmony",
     "component": {
         "name": "utils_lite",
