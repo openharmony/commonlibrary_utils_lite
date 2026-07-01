@@ -79,6 +79,26 @@ bool NativeapiDeviceInfo::GetAPILevel(JSIValue result)
     return true;
 }
 
+bool NativeapiDeviceInfo::GetSdkMinorApiVersion(JSIValue result)
+{
+    int sdkMinorApiVersion = GetSdkMinorApiVersion();
+    if (sdkMinorApiVersion < 0) {
+        return false;
+    }
+    JSI::SetStringProperty(result, "sdkMinorApiVersion", std::to_string(apiLevel).c_str());
+    return true;
+}
+
+bool NativeapiDeviceInfo::GetSdkPatchApiVersion(JSIValue result)
+{
+    int sdkPatchApiVersion = GetSdkPatchApiVersion();
+    if (sdkPatchApiVersion < 0) {
+        return false;
+    }
+    JSI::SetStringProperty(result, "sdkPatchApiVersion", std::to_string(apiLevel).c_str());
+    return true;
+}
+
 JSIValue NativeapiDeviceInfo::GetDeviceInfo(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
 {
     return ExecuteAsyncWork(thisVal, args, argsNum, ExecuteGetInfo);
@@ -124,7 +144,9 @@ bool NativeapiDeviceInfo::GetProductInfo(JSIValue result)
         if (!NativeapiDeviceInfo::GetDeviceType(result) ||
             !NativeapiDeviceInfo::GetLanguage(result) ||
             !NativeapiDeviceInfo::GetAPILevel(result) ||
-            !NativeapiDeviceInfo::GetRegion(result)) {
+            !NativeapiDeviceInfo::GetRegion(result) ||
+            !NativeapiDeviceInfo::GetSdkMinorApiVersion(result) ||
+            !NativeapiDeviceInfo::GetSdkPatchApiVersion(result)) {
             isSuccess = false;
         }
     }
