@@ -79,7 +79,7 @@ bool NativeapiDeviceInfo::GetAPILevel(JSIValue result)
     return true;
 }
 
-bool NativeapiDeviceInfo::GetMinoVersion(JSIValue result)
+bool NativeapiDeviceInfo::GetMinorVersion(JSIValue result)
 {
     int sdkMinorApiVersion = GetSdkMinorApiVersion();
     if (sdkMinorApiVersion < 0) {
@@ -145,7 +145,7 @@ bool NativeapiDeviceInfo::GetProductInfo(JSIValue result)
             !NativeapiDeviceInfo::GetLanguage(result) ||
             !NativeapiDeviceInfo::GetAPILevel(result) ||
             !NativeapiDeviceInfo::GetRegion(result) ||
-            !NativeapiDeviceInfo::GetMinoVersion(result) ||
+            !NativeapiDeviceInfo::GetMinorVersion(result) ||
             !NativeapiDeviceInfo::GetPatchVersion(result)) {
             isSuccess = false;
         }
