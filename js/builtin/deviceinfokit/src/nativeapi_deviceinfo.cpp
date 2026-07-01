@@ -85,7 +85,7 @@ bool NativeapiDeviceInfo::GetSdkMinorApiVersion(JSIValue result)
     if (sdkMinorApiVersion < 0) {
         return false;
     }
-    JSI::SetStringProperty(result, "sdkMinorApiVersion", std::to_string(apiLevel).c_str());
+    JSI::SetStringProperty(result, "sdkMinorApiVersion", std::to_string(sdkMinorApiVersion).c_str());
     return true;
 }
 
@@ -95,7 +95,7 @@ bool NativeapiDeviceInfo::GetSdkPatchApiVersion(JSIValue result)
     if (sdkPatchApiVersion < 0) {
         return false;
     }
-    JSI::SetStringProperty(result, "sdkPatchApiVersion", std::to_string(apiLevel).c_str());
+    JSI::SetStringProperty(result, "sdkPatchApiVersion", std::to_string(sdkPatchApiVersion).c_str());
     return true;
 }
 
