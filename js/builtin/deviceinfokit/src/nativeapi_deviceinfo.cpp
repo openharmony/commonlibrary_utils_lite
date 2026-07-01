@@ -79,7 +79,7 @@ bool NativeapiDeviceInfo::GetAPILevel(JSIValue result)
     return true;
 }
 
-bool NativeapiDeviceInfo::GetSdkMinorApiVersion(JSIValue result)
+bool NativeapiDeviceInfo::GetMinoVersion(JSIValue result)
 {
     int sdkMinorApiVersion = GetSdkMinorApiVersion();
     if (sdkMinorApiVersion < 0) {
@@ -89,7 +89,7 @@ bool NativeapiDeviceInfo::GetSdkMinorApiVersion(JSIValue result)
     return true;
 }
 
-bool NativeapiDeviceInfo::GetSdkPatchApiVersion(JSIValue result)
+bool NativeapiDeviceInfo::GetPatchVersion(JSIValue result)
 {
     int sdkPatchApiVersion = GetSdkPatchApiVersion();
     if (sdkPatchApiVersion < 0) {
@@ -145,8 +145,8 @@ bool NativeapiDeviceInfo::GetProductInfo(JSIValue result)
             !NativeapiDeviceInfo::GetLanguage(result) ||
             !NativeapiDeviceInfo::GetAPILevel(result) ||
             !NativeapiDeviceInfo::GetRegion(result) ||
-            !NativeapiDeviceInfo::GetSdkMinorApiVersion(result) ||
-            !NativeapiDeviceInfo::GetSdkPatchApiVersion(result)) {
+            !NativeapiDeviceInfo::GetMinoVersion(result) ||
+            !NativeapiDeviceInfo::GetPatchVersion(result)) {
             isSuccess = false;
         }
     }
