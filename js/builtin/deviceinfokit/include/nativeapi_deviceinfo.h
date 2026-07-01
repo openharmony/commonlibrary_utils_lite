@@ -33,8 +33,8 @@ private:
     static bool GetRegion(JSIValue result);
     static bool GetAPILevel(JSIValue result);
     static bool GetDeviceType(JSIValue result);
-    static bool GetSdkMinorApiVersion(JSIValue result);
-    static bool GetSdkPatchApiVersion(JSIValue result);
+    static bool GetMinorVersion(JSIValue result);
+    static bool GetPatchVersion(JSIValue result);
 };
 } // ACELite
 } // OHOS
