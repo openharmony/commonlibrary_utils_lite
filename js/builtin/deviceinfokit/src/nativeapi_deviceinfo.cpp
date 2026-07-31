@@ -79,6 +79,28 @@ bool NativeapiDeviceInfo::GetAPILevel(JSIValue result)
     return true;
 }
 
+bool NativeapiDeviceInfo::GetMinorVersion(JSIValue result)
+{
+    int sdkMinorApiVersion = GetSdkMinorApiVersion();
+    if (sdkMinorApiVersion < 0) {
+        JSI::SetNumberProperty(result, "sdkMinorApiVersion", -1);
+        return false;
+    }
+    JSI::SetNumberProperty(result, "sdkMinorApiVersion", sdkMinorApiVersion);
+    return true;
+}
+
+bool NativeapiDeviceInfo::GetPatchVersion(JSIValue result)
+{
+    int sdkPatchApiVersion = GetSdkPatchApiVersion();
+    if (sdkPatchApiVersion < 0) {
+        JSI::SetNumberProperty(result, "sdkPatchApiVersion", -1);
+        return false;
+    }
+    JSI::SetNumberProperty(result, "sdkPatchApiVersion", sdkPatchApiVersion);
+    return true;
+}
+
 JSIValue NativeapiDeviceInfo::GetDeviceInfo(const JSIValue thisVal, const JSIValue* args, uint8_t argsNum)
 {
     return ExecuteAsyncWork(thisVal, args, argsNum, ExecuteGetInfo);
@@ -137,6 +159,8 @@ bool NativeapiDeviceInfo::GetProductInfo(JSIValue result)
     const char * const defaultScreenShape = "rect";
     JSI::SetNumberProperty(result, "screenDensity", static_cast<double>(defaultScreenDensity));
     JSI::SetStringProperty(result, "screenShape", defaultScreenShape);
+    (void)NativeapiDeviceInfo::GetMinorVersion(result);
+    (void)NativeapiDeviceInfo::GetPatchVersion(result);
     return isSuccess;
 }
 
